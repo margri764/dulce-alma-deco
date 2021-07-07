@@ -1,0 +1,149 @@
+
+@import url(https://fonts.googleapis.com/css?family=Raleway:400,200,300,800);
+
+@font-face {
+    font-family:'ribeye';
+    src: url(/assets/font/Ribeye-Regular.ttf);
+     
+  }
+
+
+.container-fluid{
+    width: 98vw;
+}
+  
+/* Small devices (portrait tablets and large phones, 600px and up) */
+@media only screen and (max-width: 574px) {
+    
+
+
+   .title h1{
+
+        font-family: 'ribeye';
+        font-size: 6vw;
+        margin-top: 10vw;
+        margin-bottom: 4vw;
+        text-align: center;
+        
+   }
+
+    p{
+        font-family: 'Raleway';
+        font-size: 4vw;
+        margin-top: 6vw;
+        margin-bottom: 4vw;
+        text-align:start;
+        word-spacing: 0.5vw;
+        line-height: 7.5vw;
+   }
+
+
+   img{
+       width: 96vw;
+   }
+
+
+  }
+  
+  /* Medium devices (landscape tablets, 768px and up) */
+  @media only screen and (min-width: 575px)and  (max-width: 768px) {
+         
+  
+   .title h1{
+
+        font-family: 'ribeye';
+        font-size: 2.5vw;
+        margin-top: 6vw;
+        margin-bottom: 2vw;
+        text-align: center;
+        
+   }
+
+    p{
+        font-family: 'Raleway';
+        font-size: 2.5vw;
+        margin-top: 6vw;
+        margin-bottom: 2vw;
+        text-align:start;
+        word-spacing: 0.5vw;
+        line-height: 5vw;
+   }
+
+
+   img{
+       width: 97vw;
+   }
+   
+  
+  }
+  
+  /* Large devices (laptops/desktops, 992px and up) */
+  @media only screen and (min-width: 769px)and (max-width: 1024px){
+  
+
+
+   .title h1{
+
+        font-family: 'ribeye';
+        font-size: 2.5vw;
+        margin-top: 2vw;
+        text-align: center;
+        
+   }
+
+    p{
+        font-family: 'Raleway';
+        font-size: 1.6vw;
+        margin-top: 4vw;
+        margin-bottom: 5vw;
+        text-align:start;
+        word-spacing: 0.5vw;
+        line-height: 5vw;
+   }
+
+
+   img{
+       width: 95vw;
+   }
+    
+  
+  }
+  
+  /* Extra large devices (large laptops and desktops, 1200px and up) */
+  @media only screen and (min-width: 1025px) {
+  
+
+
+   .title h1{
+
+        font-family: 'ribeye';
+        font-size: 2.5vw;
+        margin-top: 4vw;
+        margin-bottom: 4vw;
+        text-align: center;
+        
+   }
+
+    p{
+        font-family: 'Raleway';
+        font-size: 1.6vw;
+        margin-top: 3vw;
+        margin-bottom: 2vw;
+        text-align:start;
+        word-spacing: 0.5vw;
+        line-height: 5vw;
+   }
+
+
+   img{
+       width: 97vw;
+   }
+
+    
+    
+  
+  }
+  
+  
+  
+  

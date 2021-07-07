@@ -1,0 +1,38 @@
+
+
+
+    <div class="page-wrapper ">
+        <div class="sticky-header">
+        
+        </div>
+        <div class="content-wrapper">
+        
+            <div class="content">
+                <app-header></app-header>
+          
+             
+            <app-navbar *ngIf="!(router.url === '/carrito' || router.url === '/contactus')">
+            </app-navbar>
+            
+            <app-slider-up *ngIf="!(router.url === '/store/wood' || router.url === '/contact-us'
+                                    || router.url === '/popup')" >   
+            </app-slider-up>
+
+         
+
+           
+            
+          
+             <router-outlet> </router-outlet> 
+          
+           
+
+           
+            </div>
+            <div class="footer">
+                <app-slideoff ></app-slideoff>
+                <app-footer></app-footer>  
+            </div>
+        </div>
+    </div>
+

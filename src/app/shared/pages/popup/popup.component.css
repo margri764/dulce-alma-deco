@@ -1,0 +1,231 @@
+
+@font-face {
+  font-family:'ribeye';
+  src: url(/assets/font/Ribeye-Regular.ttf);
+   
+}
+
+
+/* .animate__animated.animate__flash { */
+
+  mat-icon{
+    --animate-duration: 4000ms;
+
+  }
+  
+
+  
+  a{
+  text-decoration: none;
+  }
+  
+ 
+
+   .navbar{
+
+    box-shadow: 5px 5px 10px rgb(100, 97, 97);
+
+    
+  } 
+
+/* ------------------------------------@media------------------------------------- */
+
+
+/* Extra small devices (phones, 600px and down) */
+@media only screen and (max-width: 574px) {
+  
+
+  .navbar-collapse{
+    transition: all 500ms linear;
+  }
+
+  .navbar-brand{
+    font-family:'ribeye';
+    font-size: 4.6vw;
+    color: coral;
+    font-weight: bold;  
+    text-shadow: 1px 1px 2px rgb(248, 209, 165);
+     
+    }
+   
+  
+  
+
+  .nav-item{
+      transition: all 500ms linear;
+   
+      /* margin-top: 10px; */
+  }
+
+  #font .nav-item{
+    font-family:'ribeye';
+    font-size: 4.5vw;
+    
+}
+
+ #font .dropdown-menu{
+    font-size: 4.5vw;
+    width: 68vw;
+    box-shadow: 5px 5px 10px rgb(100, 97, 97); 
+ }
+
+ .dropdown-item:hover{
+  
+  background-color: coral;
+  font-weight: bold;
+ 
+ }
+
+
+
+
+
+  
+  
+}
+  
+
+  /* Medium devices (landscape tablets, 768px and up) */
+  @media only screen and (min-width: 575px) and (max-width: 768px) {
+  
+ 
+
+     .navbar-brand{
+      font-family:'ribeye';
+      font-size: 2.8vw;
+      text-shadow: 1px 1px 2px rgb(248, 209, 165);
+   
+     
+    }
+    
+  
+    .nav-item{
+      
+        /* margin-top: 10px; */
+    }
+  
+    #font .nav-item{
+      font-family:'ribeye';
+      font-size: 2.8vw;
+      
+  }
+  
+   #font .dropdown-menu{
+      font-size: 2.8vw;
+      width: 68vw;
+      box-shadow: 5px 5px 10px rgb(100, 97, 97); 
+   }
+  
+   .dropdown-item:hover{
+    
+    background-color: coral;
+    font-weight: bold;
+   
+   }
+  
+   
+  
+
+  
+ 
+  
+  a{
+  text-decoration: none;
+  }
+  
+
+  }
+  
+  /* Large devices (laptops/desktops, 992px and up) */
+  @media only screen and (min-width: 768px) and (max-width: 1024px) {
+
+    .navbar{
+ 
+      /* margin-top: 2vw;
+      height: 4.5vw;
+    */
+  
+      
+    }
+      .navbar-brand{
+      font-family:'ribeye';
+      font-size: 2.2vw;
+      color: coral;
+      font-weight: bold;
+      text-shadow: 1px 1px 2px rgb(248, 209, 165);
+   
+     
+    }
+    .navbar-nav{
+      margin-left: 35vw;
+    }
+  
+    .nav-item{
+     
+         /* margin-top: 10px; */
+    }
+  
+    #font .nav-item{
+      font-family:'ribeye';
+      font-size: 1.8vw;
+      margin-top: 0.93vw;
+      
+  }
+  
+   #font .dropdown-menu{
+      font-size: 1.8vw;
+      width: 30vw;
+      box-shadow: 5px 5px 10px rgb(100, 97, 97); 
+   }
+  
+   .dropdown-item:hover{
+    
+    background-color: coral;
+    font-weight: bold;
+   
+   }
+  
+  
+}
+  
+
+/* Extra Large devices (laptops/desktops, 1280px and up) */ 
+@media only screen and (min-width: 1025px) {
+  
+  .navbar{
+  
+    /* height: 3.2vw; */
+       
+  }
+  
+  .navbar-brand{
+    font-family:'ribeye';
+    font-size: 1.9vw;
+    color: coral;
+    font-weight: bold;
+    text-shadow: 1px 1px 2px rgb(248, 209, 165);
+  }
+  .navbar-nav{
+    margin-left: 42vw;
+  }
+
+
+#font .nav-item{
+font-family:'ribeye';
+font-size: 1.4vw;
+margin-top: 0.7vw;
+}
+
+
+
+
+ .dropdown-menu{
+  font-family:'ribeye';
+  font-size: 1.6vw;
+  width: 30vw;
+  box-shadow: 5px 5px 10px rgb(100, 97, 97); 
+}
+
+
+
+}

@@ -1,0 +1,138 @@
+
+
+@font-face {
+  font-family:'ribeye';
+  src: url(/assets/font/Ribeye-Regular.ttf);
+   
+}
+
+
+
+
+
+    
+    .carousel-item{
+    
+        height: 10vw;
+        background: rgb(63, 47, 47);
+        color:rgb(255, 251, 251);
+        position:relative;
+        background-size: cover;
+    
+    
+    }
+    
+       
+ 
+    
+    .overlay-image{
+      position: absolute;
+      bottom: 0;
+      left:0;
+      right: 0;
+      top: 0;
+      background-position: center;
+      background-size: 85%;       
+     
+    
+    }
+   
+  
+    
+    
+    
+    /* Small devices (portrait tablets and large phones, 600px and up) */
+    @media only screen and (max-width: 574px) {
+    
+      .carousel-item{
+    
+        height: 15vw;
+    
+      
+        
+      
+    }
+  
+    
+  
+    
+    .overlay-image{
+        position: absolute;
+        bottom: 0;
+        left:0;
+        right: 0;
+        top: 0;
+        background-position: center;
+        background-size: cover;       
+       
+      
+      }
+     
+    
+    }
+    
+    /* Medium devices (landscape tablets, 768px and up) */
+    @media only screen and (min-width: 575px)and  (max-width: 768px) {
+           
+      .carousel-item{
+    
+        height: 9vw;
+      
+    }
+ 
+    
+    a {
+      line-height: 1vw;
+      font-size: 3.2vw;
+      opacity: 0.8;
+      box-shadow: 5px 5px 20px rgb(100, 97, 97);
+    
+    
+    
+    }
+    
+    }
+    
+    /* Large devices (laptops/desktops, 992px and up) */
+    @media only screen and (min-width: 769px)and (max-width: 1024px){
+    
+     .carousel-item{
+    
+        height: 8vw;
+      
+    }
+  
+    
+    a {
+      line-height: 2.2vw;
+      font-size: 2vw;
+      opacity: 0.8;
+      box-shadow: 5px 5px 20px rgb(100, 97, 97);
+    
+    
+    
+    }
+
+    .overlay-image{
+     
+        background-size:85%;
+       
+      
+      }
+    
+    }
+    
+    /* Extra large devices (large laptops and desktops, 1200px and up) */
+    @media only screen and (min-width: 1025px) {
+    
+      .carousel-item{
+    
+        height: 8.5vw;
+      
+    }
+    
+    }
+    
+    
+    
+    

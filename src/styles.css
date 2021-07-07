@@ -1,0 +1,33 @@
+/* You can add global styles to this file, and also import other style files */
+
+@import '~@angular/material/prebuilt-themes/indigo-pink.css';
+
+
+
+@font-face {
+    font-family: Cream,Wandita,Darcy,fontawesome,Decorate;
+    src: url(/assets/font/Cream\ Black\ Italic.ttf) ;
+    src: url(/assets/font/Wandita.ttf) format("opentype");
+    src: url(/assets/font/Darcy.ttf) format("opentype");
+    src: url(/assets/font/fontawesome-webfont.ttf) format("opentype");
+    src: url(/assets/font/Decorate.ttf) format("opentype");
+
+}
+
+body{
+
+    overflow: hidden;  
+
+}
+
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+.notification{
+    background-color: rgb(255, 97, 6);
+    color:rgb(255, 255, 255);
+
+
+
+
+}
