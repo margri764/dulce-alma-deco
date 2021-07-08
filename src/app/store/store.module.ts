@@ -11,6 +11,10 @@ import { StoreRoutingModule } from './store-routing.module';
 
 
 //components
+
+import { ReactiveFormsModule } from '@angular/forms';
+
+//components
 import { WoodComponent } from './pages/wood/wood.component';
 import { ShoppingCartComponent } from './pages/shopping-cart/shopping-cart.component';
 import { StencilComponent } from './pages/stencil/stencil.component';
@@ -43,6 +47,7 @@ import { NotificationService } from '../shared/services/notification.service';
     StoreRoutingModule,
     RouterModule,
     HttpClientModule,
+    ReactiveFormsModule
  
   
   ],

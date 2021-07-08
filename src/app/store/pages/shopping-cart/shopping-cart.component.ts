@@ -1,12 +1,19 @@
-import { Component, ElementRef, OnInit, Renderer2, ViewChild } from '@angular/core';
+import { Component, ElementRef, HostListener, OnInit, Renderer2, ViewChild } from '@angular/core';
+import { FormBuilder, FormGroup } from '@angular/forms';
 import { MatDialog, MatDialogConfig } from '@angular/material/dialog';
 import { Router } from '@angular/router';
 
 import { Cart } from 'src/app/model/cart.model';
 import { PopupComponent } from 'src/app/shared/pages/popup/popup.component';
 import { MessageService } from 'src/app/shared/services/message.service';
+import { PdfService } from 'src/app/shared/services/pdf.service';
 import Swal from 'sweetalert2';
 
+interface Products{
+    quantity: number,
+    price: number,
+    name: string,
+};
 
 @Component({
   selector: 'app-shopping-cart',
@@ -15,52 +22,90 @@ import Swal from 'sweetalert2';
 })
 export class ShoppingCartComponent implements OnInit {
 
-  @ViewChild ('inputQuantity') inputQuantity:ElementRef<HTMLInputElement>
-  @ViewChild ('canvas') canvas:ElementRef<HTMLInputElement>
+  
+
+  // @ViewChild ('inputQuantity') inputQuantity:ElementRef<HTMLInputElement>
+  // @HostListener('click') onClick(){
+  //   this.valueInput= parseInt(this.inputQuantity.nativeElement.value)
+  // }
+
 
  
-  clicked:boolean;
+  clicked:   boolean;
   dialogRef: any;
   navbarOpen:boolean;
-  
+  valueInput:any;
 
 
   constructor( public cart: Cart,
                public messageService: MessageService ,
                private router : Router, 
-               public rendered: Renderer2
+               public rendered: Renderer2,
+               public pdf : PdfService,
+               private fb : FormBuilder
               //  private dialog : MatDialog
             ) 
-              {        } 
+              {        }
+  
+  generateBuy2( ){
 
-  updateQuantities (producto:any){
+    const arrayProducts=[];
 
-  const valueInput= parseInt(this.inputQuantity.nativeElement.value);
+    this.cart.lines.forEach((line)=>{
+      let lines: Products=({
+        quantity: line.quantity,
+        name: line.producto.name,
+        price: line.producto.price
 
-  this.cart.updateQuantity( producto, valueInput )
+      });
+      arrayProducts.push(lines)
+    
+    });
+    console.log(arrayProducts)
 
-
+    // this.arrayProducts.push({
+    //   quantity,
+    //   price,
+    //   name
+    // });
+    // console.log(this.arrayProducts)
+    // }
   }
+    // form=this.myPdf.value
+    // console.log(form);
+    // // this.pdf.generateInvoice(form.value).subscribe((res)=>{
+    // //   console.log(res);
+    // })
+
+
+  
+  
+  // updateQuantities (producto:any){
+
+  //   this.cart.updateQuantity( producto, this.valueInput );
+
+  // }
 
   onCloseSeguir(){
       this.router.navigateByUrl('/home')   
 }
 
+
   ngOnInit (){
 
-// this.onCreate();
   
+
+   
 
   }
 
-
-
-
-  toggleNavbar() {
-   
-  this.rendered.addClass(this.canvas.nativeElement,'.offcanvas.show')
  
- }
+
+//   toggleNavbar() {
+   
+//   this.rendered.addClass(this.canvas.nativeElement,'.offcanvas.show')
+ 
+//  }
 
   formularioCompra(form:any){
 

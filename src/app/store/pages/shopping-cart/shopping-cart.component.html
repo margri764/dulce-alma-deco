@@ -4,10 +4,7 @@
   
   <br><br>
   <div class="flex-container">
-  <div class="carrito"  >
-    
-     Carro de Compras
-  </div>
+  <div class="carrito"> Carro de Compras  </div>
  
  <br> <br>
 
@@ -27,22 +24,24 @@
 
 
 
-      <div class="container"     *ngIf="cart.lines.length != 0">
+      <div class="container" *ngIf="cart.lines.length !==0">
 
 
         <div class="row font"  *ngFor="let line of cart.lines" >
         
           <div class="col-3">
           
-            <input type="number" class="form-control-sm" style="width: 4em;" [value]="line.quantity" 
-                  (change)="updateQuantities(line.producto)"     #inputQuantity >
+            <input type="number" class="form-control-sm" style="width: 4em;" 
+             [value]="line.quantity" 
+             (change)="cart.updateQuantity(line.producto, $event.target.value)">
+
                       
                        
           </div>
           
           
        
-         <div class="col-3">{{line.producto.name}}</div>
+         <div class="col-3"> {{line.producto.name}}</div>
          <div class="col-3"> {{line.producto.price | currency:"USD":true:"2.2-2"}} </div> 
         
          <div class="col-3">    
@@ -74,20 +73,22 @@
     <div class="d-flex flex-row justify-content-center">
 
 
+      <!-- (click)="onCloseSeguir()" disabled={{clicked}}> -->
      
                                    
       
-        <button class="keepbuy btn  btn-primary "   
-                  (click)="onCloseSeguir()" disabled={{clicked}}>
+        <button class="keepbuy btn  btn-primary" routerLink="/home"   
+                 >
             Seguir Comprando
          
           </button> 
          <button class="buy btn btn-success ml-3" id="font" 
               *ngIf="cart.lines.length != 0"            
-          
-               data-bs-toggle="offcanvas" data-bs-target="#offcanvasExample" aria-controls="offcanvasExample"
+          (click)="generateBuy2()"
                            
                >
+               <!-- data-bs-toggle="offcanvas" data-bs-target="#offcanvasExample" aria-controls="offcanvasExample" -->
+
                
                Comprar 
              <!-- <div className="spinner-border" role="status">
@@ -112,28 +113,34 @@
 
   
 <div class="offcanvas-header">
-  <h5 class="offcanvas-title" id="offcanvasExampleLabel">Offcanvas</h5>
+  <h5 class="offcanvas-title" id="offcanvasExampleLabel">Medios de Pago</h5>
   <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
 </div>
 <div class="offcanvas-body">
   <div>
-    Some text as placeholder. In real life you can have the elements you have chosen. Like, text, images, lists, etc.
+    <p>Podes elegir como queres realizar el pago</p>
   </div>
   <div class="dropdown mt-3">
-    <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-bs-toggle="dropdown">
-      Dropdown button
+    <button class="btn btn-secondary dropdown-toggle animate__animated animate__fadeIn" type="button" id="dropdownMenuButton" data-bs-toggle="dropdown" >
+      Selecciona como queres pagar
     </button>
-    <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-      <li><a class="dropdown-item" href="#">Action</a></li>
-      <li><a class="dropdown-item" href="#">Another action</a></li>
-      <li><a class="dropdown-item" href="#">Something else here</a></li>
+    <ul class="dropdown-menu"  aria-labelledby="dropdownMenuButton">
+      <li><a class="dropdown-item" href="#">Mercado Pago</a></li>
+      <li><a class="dropdown-item" href="#">Transferencia Bancaria</a></li>
+      <li><a class="dropdown-item" href="https://www.google.com.ar/maps/place/Dulce+Alma+Deco/@-35.036627,-64.2473898,17z/data=!4m9!1m2!2m1!1sItalia+1820,+Realico,+La+Pampa!3m5!1s0x95c52bf971e10c8b:0xdb3aabb28ff046f8!8m2!3d-35.0348676!4d-64.2431477!15sCh5JdGFsaWEgMTgyMCwgUmVhbGljbywgTGEgUGFtcGGSAQpoYW5kaWNyYWZ0" target="blank">Paso por el local</a></li>
     </ul>
+    <br>
+    <hr>
+    <div>
+      <img src="./assets/dadeco2.jpg">
+    </div>
   </div>
 </div>
 </div>
 
 
-    
+
+
     <!-- <form  #form="ngForm" >
       <ul *ngFor="let line of cart.lines">
 
@@ -149,8 +156,8 @@
  
       </ul>
 
-      </form> -->
-
+      </form>
+ -->
 
    
 

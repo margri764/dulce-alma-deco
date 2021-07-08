@@ -46,7 +46,6 @@ recalculate() {
     if (line !== undefined) {
       line.quantity = Number(quantity);
     }
-console.log(line.quantity,quantity);
     this.recalculate();
   }
 

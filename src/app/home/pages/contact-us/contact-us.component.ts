@@ -31,7 +31,6 @@ message :[]
 
 });
 
-// @ViewChild('form') miFormulario: NgForm;
 
   
 
