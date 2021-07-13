@@ -1,0 +1,97 @@
+
+
+    <div class="container-fluid"  id="htmlData">
+        <div class="row">
+            <div class="col-xs-10 ">
+                <h1>REMITO</h1>
+            </div>
+            <div class="col-xs-2">
+                <img class="img-fluid" src="../../../../assets/header.jpg" alt="Logotipo">
+            </div>
+        </div>
+        <hr>
+        <div class="row">
+            <div class="col-xs-10">
+                <h1 class="h6">Natalia A. Barrozo</h1>
+                <h3 >https://dulce-alma-deco.com</h3>
+            </div>
+            <div class="col-xs-2 text-center">
+                <strong>Fecha</strong>
+                <br> {{fecha  | date:'long'}} 
+                <br><br>
+                <strong>Factura No.</strong>
+                <br>
+                1
+            </div>
+        </div>
+        <hr>
+        <div class="row text-center" style="margin-bottom: 2rem;">
+            <div class="col-xs-6">
+                <h1 class="h2">Cliente</h1>
+                <strong>Luis Cabrera Benito</strong>
+            </div>
+             </div>
+        <div class="row">
+            <div class="col-xs-12">
+                <table class="table table-condensed table-bordered table-striped" >
+                    <thead>
+                        <tr>
+                            <th>Descripción</th>
+                            <th>Cantidad</th>
+                            <th>Precio unitario</th>
+                            <th>Sub-Total</th>
+                        </tr>
+                    </thead>
+                    <tbody *ngFor="let line of cart.lines">
+                        <td>{{line.producto.name}} </td>
+                        <td>{{line.quantity}} </td>
+                        <td>{{line.producto.price}} </td>
+                        <td>{{line.producto.price * line.quantity}} </td>
+
+                    </tbody>
+                    <tfoot>
+                        <!-- <tr>
+                            <td colspan="3" class="text-right">Subtotal</td>
+                            <td>1111</td>
+                        </tr> -->
+                        <!-- <tr>
+                            <td colspan="3" class="text-right">Descuento</td>
+                            <td>{{2222}}</td>
+                        </tr> -->
+                        <!-- <tr>
+                            <td colspan="3" class="text-right">Subtotal con descuento</td>
+                            <td>{{2222}}</td>
+                        </tr>
+                        <tr>
+                            <td colspan="3" class="text-right">Impuestos</td>
+                            <td>{{2222}}</td>
+                        </tr> -->
+                        <tr>
+                            <td colspan="3" class="text-right">
+                                <h4><b>Total</b></h4>
+                            </td>
+                            <td>
+                                <h4>{{cart.cartPrice | currency:"USD":true:"2.2-2"}}</h4>
+                            </td>
+                        </tr>
+                    </tfoot>
+                </table>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-xs-12 text-center">
+                <p class="h5">Gracias por su compra</p>
+            </div>
+        </div>
+    </div>
+  
+  <button class="btn btn-success"(click)="clear()" routerLink="/home">Volver</button>
+  <button class="btn btn-warning" (click)="downloadPDF()"  >Imprimir</button>
+
+
+
+
+ 
+   
+
+  

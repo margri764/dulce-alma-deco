@@ -16,7 +16,6 @@ import { MatSnackBar } from '@angular/material/snack-bar';
 
 
 //components
-import { PopupComponent } from './shared/pages/popup/popup.component';
 import { AppComponent } from './app.component';
 
 
@@ -47,10 +46,6 @@ import { AppComponent } from './app.component';
       useValue:{}
     }
    
-
-
-
-
   ],
   bootstrap: [AppComponent],
   // entryComponents : [ PopupComponent ]

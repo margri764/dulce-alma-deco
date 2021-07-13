@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { ContactUsComponent } from './home/pages/contact-us/contact-us.component';
 import { HomeComponent } from './home/pages/home/home.component';
+import { InvoiceComponent } from './shared/pages/invoice/invoice.component';
 import { PopupComponent } from './shared/pages/popup/popup.component';
 
 
@@ -22,6 +23,9 @@ const routes : Routes = [
   },
   {
     path: 'popup', component: PopupComponent
+  },
+  {
+    path: 'invoice', component: InvoiceComponent
   },
   {
     path: '**', redirectTo: 'home'

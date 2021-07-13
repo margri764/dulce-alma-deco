@@ -1,6 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-// import { MatDialog, MatDialogConfig } from '@angular/material/dialog';
-// import { CarritoComponent } from '../carrito/carrito.component';
 import { ImagesService } from '../../../shared/services/images.service';
 import Swal from 'sweetalert2';
 import { Cart } from 'src/app/model/cart.model';
@@ -21,7 +19,6 @@ export class WoodComponent implements OnInit {
   constructor(
             public servicio :  ImagesService, 
             public cart : Cart
-            // public dialog : MatDialog,
   ) { 
               this.arrayProductos = servicio.getProductos();
               this.servicio= servicio.getIndex("id");
@@ -30,14 +27,7 @@ export class WoodComponent implements OnInit {
 
   ngOnInit() { 
 
-    // this.uploadimageservice.imageDetailList.snapshotChanges().subscribe(
-      
-    //   list => {
-    //     this.imageList = list.map(item => { return item.payload.val(); });
-    //     this.arrCategoryFofacil=this.imageList.filter(item => {return item.category === "Fibro Facil"})
 
-    //   }, 
-    // ) 
   
     }// fin ngOnInit
   
@@ -49,15 +39,6 @@ export class WoodComponent implements OnInit {
         this.cartel = Swal.fire("Muchas Gracias!", "Producto añadido al Carrito!", "success");
         return this.cartel
      }
-
-    //  onCreate(){
-    //   const dialogConfig=new MatDialogConfig()
-    //   dialogConfig.disableClose=true
-    //   dialogConfig.autoFocus=true
-    //   dialogConfig.width="100%"
-    //   dialogConfig.height="100%"
-    //   this.dialog.open(CarritoComponent,dialogConfig)
-    //  }
 
     
         

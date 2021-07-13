@@ -30,26 +30,28 @@
 
         <label>Nombres y Apellido *</label>
         <input type="text"  class="form-control" formControlName="name" autofocus> 
-            <span class="form-text text-danger animate__animated animate__tada mb-3" 
+        
+            <span class="form-text text-danger animate__animated animate__tada " 
             *ngIf ="validField ('name')">
                 Incluya Nombre y Apellido
             </span> 
-      
+      <br> <br>  
         <label>Telefono / Celular *</label>
         <input type="number" class="form-control" formControlName="phone">
-            <span class="form-text text-danger r animate__animated animate__tada mb-3"
+            <span class="form-text text-danger  animate__animated animate__tada "
              *ngIf ="validField ('phone')">
                 Este campo es obligatorio
             </span> 
-
+      <br>   <br>     
         <label>Correo electronico *</label>
         <input type="email" class="form-control" formControlName="email" >
-        <span class="form-text text-danger r animate__animated animate__tada mb-3"
+        <span class="form-text text-danger  animate__animated animate__tada "
         *ngIf ="validField ('email')">
-           No respeta formato de email
+           No respeta formato de email 
        </span> 
+       <br>   <br>  
             
-                                    
+         <br>                           
         <label class="mt-5">Mensaje *</label>
         <textarea class="form-control" formControlName="message"></textarea>
 

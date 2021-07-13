@@ -77,18 +77,24 @@ onCloseSeguir(){
     }
 
     // imprimir el valor del formulario, sólo si es válido
+  
 
-    Swal.fire({
-      position: 'center',
-      icon: 'success',
-      title: 'Mensaje Enviado correctamente!!',
-      showConfirmButton: false,
-      timer: 3000
-    })
-    console.log(this.myForm.value);
-    this.cart.clear();
-    this.clicked=false; 
-    this.myForm.reset(); 
+      this.messageService.sendMessage(this.myForm.value).subscribe(() => {
+        Swal.fire({
+          position: 'center',
+          icon: 'success',
+          title: 'Mensaje Enviado correctamente!!',
+          showConfirmButton: false,
+          timer: 3000
+        })
+        console.log(this.myForm.value);
+        this.cart.clear();
+        this.clicked=false; 
+        this.myForm.reset(); 
+  
+
+      });
+      this.clicked=false    
 
 }
 
@@ -96,9 +102,8 @@ onCloseSeguir(){
 // contactForm(form) {
 
 //   this.messageService.sendMessage(form.value).subscribe(() => {
-//   Swal.fire("Su Pedido", "Pedido enviado correctamente", "success");
+//   Swal.fire("Mensaje", "Mensaje enviado correctamente", "success");
 //   });
-//   this.cart.clear();
 //   this.clicked=false    
 //   }
 

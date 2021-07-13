@@ -11,28 +11,27 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatStepperModule } from '@angular/material/stepper';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatCardModule} from '@angular/material/card';
-
-
-
-
 import { MatDialogModule } from '@angular/material/dialog';
+
+//services
 
 import { ValidatorService } from './validator/validator.service';
 
-
+//components
 import { HeaderComponent } from './pages/header/header.component';
 import { NavbarComponent } from './pages/navbar/navbar.component';
 import { FooterComponent } from './pages/footer/footer.component';
 import { SlideoffComponent } from './pages/slideoff/slideoff.component';
 import { SliderUpComponent } from './pages/slider-up/slider-up.component';
 import { PopupComponent } from './pages/popup/popup.component';
+import { InvoiceComponent } from './pages/invoice/invoice.component';
 
 
 
 
 @NgModule({
   providers:[
-    ValidatorService,
+    ValidatorService
  
     
   
@@ -43,7 +42,8 @@ import { PopupComponent } from './pages/popup/popup.component';
     FooterComponent,
     SlideoffComponent,
     SliderUpComponent,
-    PopupComponent
+    PopupComponent,
+    InvoiceComponent
   ],
 
   imports: [
@@ -68,7 +68,8 @@ import { PopupComponent } from './pages/popup/popup.component';
     FooterComponent,
     SlideoffComponent,
     SliderUpComponent,
-    PopupComponent
+    PopupComponent,
+    InvoiceComponent
   ]
 })
 export class SharedModule { }

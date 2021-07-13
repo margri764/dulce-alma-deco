@@ -8,14 +8,15 @@
         <div class="content-wrapper">
         
             <div class="content">
-                <app-header></app-header>
+                <app-header *ngIf="!(router.url === '/invoice')"></app-header>
           
              
-            <app-navbar *ngIf="!(router.url === '/carrito' || router.url === '/contactus')">
+            <app-navbar *ngIf="!(router.url === '/carrito' || router.url === '/contactus'
+                            || router.url === '/invoice')">
             </app-navbar>
             
             <app-slider-up *ngIf="!(router.url === '/store/wood' || router.url === '/contact-us'
-                                    || router.url === '/popup')" >   
+                                    || router.url === '/popup'   || router.url === '/invoice')" >   
             </app-slider-up>
 
          
@@ -30,8 +31,8 @@
            
             </div>
             <div class="footer">
-                <app-slideoff ></app-slideoff>
-                <app-footer></app-footer>  
+                <app-slideoff *ngIf="!(router.url === '/invoice')"></app-slideoff>
+                <app-footer *ngIf="!(router.url === '/invoice')"></app-footer>  
             </div>
         </div>
     </div>

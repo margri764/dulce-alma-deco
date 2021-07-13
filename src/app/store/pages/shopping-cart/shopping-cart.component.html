@@ -4,7 +4,7 @@
   
   <br><br>
   <div class="flex-container">
-  <div class="carrito"> Carro de Compras  </div>
+  <div class="carrito" > Carro de Compras  </div>
  
  <br> <br>
 
@@ -73,23 +73,21 @@
     <div class="d-flex flex-row justify-content-center">
 
 
-      <!-- (click)="onCloseSeguir()" disabled={{clicked}}> -->
-     
-                                   
+                                      
       
         <button class="keepbuy btn  btn-primary" routerLink="/home"   
-                 >
+        (click)="onCloseSeguir()"   >
             Seguir Comprando
          
           </button> 
          <button class="buy btn btn-success ml-3" id="font" 
-              *ngIf="cart.lines.length != 0"            
-          (click)="generateBuy2()"
-                           
+              *ngIf="cart.lines.length != 0"  
+              disabled={{clicked}}       
+            
+              data-bs-toggle="offcanvas" data-bs-target="#offcanvasExample" aria-controls="offcanvasExample"
                >
-               <!-- data-bs-toggle="offcanvas" data-bs-target="#offcanvasExample" aria-controls="offcanvasExample" -->
-
-               
+                           
+                              
                Comprar 
              <!-- <div className="spinner-border" role="status">
               <span className="sr-only">Loading...</span>
@@ -99,6 +97,7 @@
         </div>
     </div>
   
+    
 
     <!-- <button class="btn btn-primary" type="button" >
       Seleccione Medio de Pago
@@ -128,6 +127,9 @@
       <li><a class="dropdown-item" href="#">Mercado Pago</a></li>
       <li><a class="dropdown-item" href="#">Transferencia Bancaria</a></li>
       <li><a class="dropdown-item" href="https://www.google.com.ar/maps/place/Dulce+Alma+Deco/@-35.036627,-64.2473898,17z/data=!4m9!1m2!2m1!1sItalia+1820,+Realico,+La+Pampa!3m5!1s0x95c52bf971e10c8b:0xdb3aabb28ff046f8!8m2!3d-35.0348676!4d-64.2431477!15sCh5JdGFsaWEgMTgyMCwgUmVhbGljbywgTGEgUGFtcGGSAQpoYW5kaWNyYWZ0" target="blank">Paso por el local</a></li>
+      <li><a class="dropdown-item"    routerLink="/invoice" >Descargar Facturas</a></li>
+      
+      
     </ul>
     <br>
     <hr>
@@ -159,7 +161,8 @@
       </form>
  -->
 
-   
+ 
+
 
   
    
