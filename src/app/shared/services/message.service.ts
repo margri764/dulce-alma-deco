@@ -23,7 +23,7 @@ export class MessageService {
     console.log(body)
     // let options = this.createRequestOptions();
     // return this._http.post("http://localhost:8080/checkout",body,{headers: options})
-    return this._http.post("http://localhost:8080/checkout",body)
+    return this._http.post("/checkout",body)
   
   }
   

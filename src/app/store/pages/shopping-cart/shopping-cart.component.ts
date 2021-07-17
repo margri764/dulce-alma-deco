@@ -73,7 +73,7 @@ export class ShoppingCartComponent implements OnInit {
       });
       this.messageService.sendMercadoPago(this.lines).subscribe((res:any) => {
 
-      console.log('respuesta desde server',res)
+      // console.log('respuesta desde server',res)
       let response = JSON.stringify(res)
 
       response = response.replace(/"/g,"")
