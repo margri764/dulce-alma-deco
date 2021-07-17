@@ -1,18 +1,26 @@
 import { Component, OnInit, Renderer2 } from '@angular/core';
-import { FormBuilder } from '@angular/forms';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { Cart } from 'src/app/model/cart.model';
 import { MessageService } from 'src/app/shared/services/message.service';
 import { PdfService } from 'src/app/shared/services/pdf.service';
 
-
+interface Products {
+  quantity: number,
+  title: string,
+  unit_price: number
+}
 
 @Component({
   selector: 'app-shopping-cart',
   templateUrl: './shopping-cart.component.html',
   styleUrls: ['./shopping-cart.component.css']
 })
+
+
+
 export class ShoppingCartComponent implements OnInit {
+
 
   
   // @ViewChild ('inputQuantity') inputQuantity:ElementRef<HTMLInputElement>
@@ -20,10 +28,21 @@ export class ShoppingCartComponent implements OnInit {
   //   this.valueInput= parseInt(this.inputQuantity.nativeElement.value)
   // }
  
+
   clicked:   boolean;
   dialogRef: any;
   navbarOpen:boolean;
   arrayProducts=[];
+  lines: Products;
+
+  // myMp:FormGroup = this.fb.group({
+  //   title:    ['',Validators.required],
+  //   unit_price:    ['',Validators.required],
+  //   quantity:    ['',Validators.required],
+
+    
+  //   });
+    
 
 
   constructor( public cart: Cart,
@@ -31,7 +50,7 @@ export class ShoppingCartComponent implements OnInit {
                private router : Router, 
                public rendered: Renderer2,
                public pdf : PdfService,
-               private fb : FormBuilder,
+              //  private fb : FormBuilder,
               //  private dialog : MatDialog
             ) 
   {
@@ -39,19 +58,32 @@ export class ShoppingCartComponent implements OnInit {
   
   
   
-  // generateBuy2( ){
-
-  //   this.cart.lines.forEach((line)=>{
-  //     let lines: Products=({
-  //       cantidad: line.quantity,
-  //       descripcion: line.producto.name,
-  //       precio: parseInt(line.producto.price)
-
-  //     });
-  //     this.arrayProducts.push(lines)
+  generateBuy( ){
     
-  //     });
-  //   }
+
+    this.cart.lines.forEach((line)=>{
+       this.lines=({ 
+        quantity: line.quantity,
+        title: "Productos Seleccionados",
+        unit_price: parseInt(line.producto.price)
+
+      });
+      // this.arrayProducts.push(lines)
+    
+      });
+      this.messageService.sendMercadoPago(this.lines).subscribe((res:any) => {
+
+      console.log('respuesta desde server',res)
+      let response = JSON.stringify(res)
+
+      response = response.replace(/"/g,"")
+
+      location.href =(response)
+
+
+      // console.log('respuesta desde server',response)
+      }); 
+    }
 
  
   //   genInvoice(){

@@ -1,4 +1,4 @@
-
+o
 
 
   
@@ -124,7 +124,7 @@
       Selecciona como queres pagar
     </button>
     <ul class="dropdown-menu"  aria-labelledby="dropdownMenuButton">
-      <li><a class="dropdown-item" href="#">Mercado Pago</a></li>
+      <li><a class="dropdown-item" (click)="generateBuy()">Mercado Pago</a></li>
       <li><a class="dropdown-item" href="#">Transferencia Bancaria</a></li>
       <li><a class="dropdown-item" href="https://www.google.com.ar/maps/place/Dulce+Alma+Deco/@-35.036627,-64.2473898,17z/data=!4m9!1m2!2m1!1sItalia+1820,+Realico,+La+Pampa!3m5!1s0x95c52bf971e10c8b:0xdb3aabb28ff046f8!8m2!3d-35.0348676!4d-64.2431477!15sCh5JdGFsaWEgMTgyMCwgUmVhbGljbywgTGEgUGFtcGGSAQpoYW5kaWNyYWZ0" target="blank">Paso por el local</a></li>
       <li><a class="dropdown-item"    routerLink="/invoice" >Descargar Facturas</a></li>
@@ -143,12 +143,12 @@
 
 
 
-    <!-- <form  #form="ngForm" >
+    <!-- <form  [formGroup]="myMp" >
       <ul *ngFor="let line of cart.lines">
 
 
        
-          <input type="hidden" name="title"  ngModel >
+          <input type="hidden" formControlName="name" (value)="line.name" >
         
       
           <input type="hidden" name="quantity"  [(ngModel)]="line.quantity" >
@@ -158,11 +158,7 @@
  
       </ul>
 
-      </form>
- -->
-
- 
-
+      </form> -->
 
   
    
