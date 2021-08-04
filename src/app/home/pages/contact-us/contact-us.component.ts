@@ -27,7 +27,11 @@ myForm:FormGroup = this.fb.group({
 name:    ['',[Validators.required,Validators.pattern( this.validatorservice.nameLastName)]],
 phone:   ['',Validators.required],
 email:   ['',[Validators.required, Validators.pattern( this.validatorservice.emailPattern)]],
-message :[]
+message :['']
+// name:    ['marcelo griotti',[Validators.required,Validators.pattern( this.validatorservice.nameLastName)]],
+// phone:   ['2302690139',Validators.required],
+// email:   ['mark@gmail.com',[Validators.required, Validators.pattern( this.validatorservice.emailPattern)]],
+// message :['probando']
 
 });
 
@@ -76,25 +80,24 @@ onCloseSeguir(){
       return;
     }
 
-    // imprimir el valor del formulario, sólo si es válido
-  
-
-      this.messageService.sendMessage(this.myForm.value).subscribe(() => {
-        Swal.fire({
+      this.messageService.sendMessage(this.myForm.value).subscribe((res) => {
+       
+          if (res) {
+          Swal.fire({
           position: 'center',
           icon: 'success',
           title: 'Mensaje Enviado correctamente!!',
           showConfirmButton: false,
           timer: 3000
         })
-        console.log(this.myForm.value);
+        console.log(res);
         this.cart.clear();
         this.clicked=false; 
         this.myForm.reset(); 
-  
-
-      });
-      this.clicked=false    
+        this.clicked=false    
+        }
+        },
+      )
 
 }
 

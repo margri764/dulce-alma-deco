@@ -1,9 +1,12 @@
 import { Injectable } from '@angular/core';
+import { Cart } from 'src/app/model/cart.model';
 
 @Injectable({
   providedIn: 'root'
 })
 export class ImagesService {
+
+  lineIsEmpty:boolean=true;
 
   productos : any []=[
     {
@@ -58,7 +61,7 @@ export class ImagesService {
      
     
     
-      constructor() { 
+      constructor( private cart : Cart) { 
         
       }
      
@@ -78,6 +81,12 @@ export class ImagesService {
     
      }
     
-    
+     cartIsEmpty(){
+      if( this.cart.lines.length != 0 ){
+         this.lineIsEmpty=true;
+      }
+  
+      return;
+    }
     
     }

@@ -1,7 +1,7 @@
 
 
 
-  <nav class="navbar navbar-expand-lg navbar-light bg-light" id="font">
+  <nav class="navbar navbar-expand-lg navbar-light bg-light" id="font" #navbarClick>
     <div class="container-fluid">
     <a class="navbar-brand animate__animated animate__bounce "  routerLink="./home">Dulce Alma Deco</a>
  
@@ -48,11 +48,11 @@
             <a class="nav-link text-dark animate__animated animate__backInDown" routerLink="./contact-us">Contacto</a>
           </li>
         
-          <li class="nav-item" *ngFor="let line of cart.lines" >                        
+          <li class="nav-item" *ngIf="lineIsEmpty===false">                        
          
-                <button mat-mini-fab *ngIf="cart.lines.length != 0"  routerLink="./store/shopping-cart">
+                <button mat-mini-fab  routerLink="./store/shopping-cart">
                    
-                    <mat-icon class="animate__animated animate__flash animate__infinite">shopping_cart</mat-icon>
+                    <mat-icon   class="animate__animated animate__flash animate__infinite">shopping_cart</mat-icon>
                   </button>           
               
               </li>   

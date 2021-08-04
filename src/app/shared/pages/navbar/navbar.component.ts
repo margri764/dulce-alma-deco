@@ -1,4 +1,4 @@
-import { Component, ElementRef, OnInit, Renderer2 } from '@angular/core';
+import { Component, DoCheck, ElementRef, HostListener, OnInit, Renderer2, ViewChild } from '@angular/core';
 import { ActivatedRoute, NavigationEnd, Router } from '@angular/router';
 import { filter } from 'rxjs/operators';
 import { Cart } from 'src/app/model/cart.model';
@@ -9,17 +9,25 @@ import { ImagesService } from '../../services/images.service';
   templateUrl: './navbar.component.html',
   styleUrls: ['./navbar.component.css']
 })
-export class NavbarComponent implements OnInit {
+export class NavbarComponent implements OnInit, DoCheck {
 
   numero: any;
   navbarOpen:boolean;
+  lineIsEmpty:boolean=true;
 
-  
+  // @ViewChild ('navbarClick') navbarClick:ElementRef<HTMLInputElement>
+  // @HostListener('mouseout') onMouseOut(){
+  //   if( this.cart.lines.length !==0 ){
+  //     this.lineIsEmpty=false;
+  //   }else{
+  //     this.lineIsEmpty=true;
+  //   }
+  // }
 
   constructor( private ruta : ActivatedRoute,
                public cart : Cart,
                private servicio : ImagesService,
-               private rendered : Renderer2,
+              //  private rendered : Renderer2,
                private element : ElementRef,
                private router: Router
 
@@ -34,16 +42,19 @@ export class NavbarComponent implements OnInit {
       
                           
              });
-
-            //  const navLinks = document.querySelectorAll('.nav-item')
-            //  const menuToggle = document.getElementById('navbarSupportedContent')
-            //  const bsCollapse = new.navmdb.Collapse(menuToggle)
-            //  navLinks.forEach((l) => {
-            //      l.addEventListener('click', () => { bsCollapse.toggle() })
-            //  })
-           
-            
+          
+       
+                
             }
+            
+  ngDoCheck(): void {
+    if( this.cart.lines.length !==0 ){
+      this.lineIsEmpty=false;
+    }else{
+      this.lineIsEmpty=true;
+    }
+  
+  }
           
           
           
@@ -55,12 +66,15 @@ export class NavbarComponent implements OnInit {
     .subscribe((evt: NavigationEnd) => {
       this.navbarOpen = false;
     });
-  }
+ 
+    }
+ 
 
   toggleNavbar() {
     this.navbarOpen = !this.navbarOpen;
  
  }
+
 }
   
  
