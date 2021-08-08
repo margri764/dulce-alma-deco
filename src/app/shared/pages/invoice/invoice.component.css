@@ -1,0 +1,501 @@
+
+
+@font-face {
+    font-family:'ribeye';
+    src: url(/assets/font/Ribeye-Regular.ttf);
+     
+  }
+  
+  #htmlData{
+    font-family:'ribeye';
+    
+  }
+ .btn{
+   background-color: coral;
+   background-image: linear-gradient(30deg, rgb(255, 30, 0),rgb(255, 104, 104));
+   color: cornsilk;
+   margin-right: 3px;
+   box-shadow: 3px 3px 7px rgb(108, 108, 150);
+
+ }
+  
+ 
+  .font > h4,h1{
+    font-family:'ribeye';
+    
+  }
+  .form_wrap{
+    width: 93vw;
+    height: 80%;  
+    margin-left: auto;
+    margin-right: auto;    
+    margin-bottom: 10vw; 
+    margin-top: 5vw;
+    display: flex;
+    background: #fff;
+    border-radius: 30px;
+    overflow: hidden;
+    box-shadow: 0px 0px 30px rgba(5, 5, 5, 0.2);
+ 
+
+
+}
+  
+  /* ======================Informacion de Contacto==============*/
+  
+  .cantact_info::before{
+      content: '';
+      width: 100%;
+      height: 100%;
+  
+      position: absolute;
+      top: 0;
+      left: 0;
+  
+      background:rgb(252, 196, 128);
+      opacity: 0.7;
+  }
+  
+  .cantact_info{
+      width: 55vw;
+      position: relative;  
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;  
+      background-image: url('../../../../assets/fondonegocio.jpg');
+      background-size: cover;
+      background-position: center center;
+  
+  }
+  .info_title h2{
+    font-family: 'ribeye';
+    font-size: 2.6vw;
+  
+}
+
+  
+  .info_title,
+  .info_items{
+      position: relative;   
+      color: rgb(255, 255, 255);
+      font-family: 'ribeye';
+      font-size: 2.6vw;
+  }
+  
+  .info_title{
+      margin-bottom: 60px;
+  }
+  
+  .info_title span{
+      font-size: 5vh;
+      display: flex;
+      text-align: center;
+      margin-bottom: 15px;
+  }
+  
+  .info_title h2{
+      font-size: 6vw;
+      text-align: center;
+  }
+
+  .info_items p{
+      font-size: 2.5vw;
+  }
+  
+  .info_items .fa-envelope{
+  
+    text-align: center;
+    font-size: 4vw;
+    margin-right: 1vw;
+  
+
+
+  }
+  .info_title .fa-user-circle{
+    font-size: 4vw;
+    display: flex;
+    text-align: center;
+    margin-bottom: 1vw;
+    margin-left: 9vw;
+}
+  
+
+
+  
+  
+   /* FORMULARIO =================================== */
+
+
+  form.form_contact{
+      width: 57vw;
+      padding: 3vw;
+      font-family: 'ribeye';
+  }
+  
+  form.form_contact h2 {
+      font-size: 25px;
+      font-weight: 300;
+      color: #303030;
+      margin-bottom: 30px;
+      font-family: 'ribeye';
+  }
+  
+   
+  form.form_contact label {
+      font-weight: 450;
+  }
+  
+  form.form_contact input,
+  form.form_contact textarea {
+      width: 100%;
+      padding: 8px 0px 5px;
+      margin-bottom: 20px;
+  
+      border: none;
+      border-bottom: 2px solid #D1D1D1;
+  
+      font-family: 'Open sans';
+      color: #5A5A5A;
+      font-size: 14px;
+      font-weight: 400;
+  }
+  
+ 
+  .enviar{
+    background-image: linear-gradient(30deg,rgb(9, 145, 9) ,rgb(44, 138, 44));
+    font-family:'Raleway' ;
+    font-size: 3vw;
+    line-height: 3vw;
+    box-shadow: 3px 3px 7px rgb(2, 63, 12);
+    }
+
+    .volver{
+      background-image: linear-gradient(30deg, rgb(17, 0, 255),rgb(114, 104, 255));
+      font-family: 'Raleway';
+      font-size: 3vw;
+      line-height: 3vw;
+      box-shadow: 3px 3px 7px rgb(108, 108, 150);
+      margin-left: 2vw;
+    }
+
+
+
+/* -----------------------------------------------------@media-------------------------------------------  */
+    
+    /* Small devices (portrait tablets and large phones, 600px and up) */
+    @media only screen and (max-width: 542px) {
+    
+        .form_wrap{
+            width: 95vw;
+            height:90%;       
+            margin-left: auto;
+            margin-right: auto;    
+            margin-bottom: 10vw; 
+        
+        }
+
+         /* ===================================CONTACTO========================================== */
+
+          .cantact_info {
+            width: 40vw;
+                      
+        }
+
+        .info_items{
+            display: none;
+        }
+
+   
+        .info_title h2 {
+            display: none;
+          
+        }
+
+        .info_title .fa-user-circle{
+            display: none;
+        }
+
+      
+          span#map{
+            font-size: 4vw;
+            margin-right: 2vw;
+            color: white;
+          
+          
+          }
+          span#whatsapp {
+           
+            font-size: 1.8vw;
+            margin-right: 2vw;
+            color:white;
+          } 
+          
+          
+          span#envelope{
+            font-size: 1vw;
+            color: white;
+          
+          }  
+
+         /* ===================================CONTACTO========================================== */
+
+         form.form_contact{
+      
+            font-family: 'ribeye';
+            font-size: 3.5vw;
+        }
+        form.form_contact h2 {
+            font-size:6vw;
+            margin-top: 5vw;
+            font-family: 'ribeye';
+        }
+        
+        .enviar{
+        
+          font-size: 3.7vw;
+          line-height: 3.2vw;
+      
+          }
+          
+          .volver{
+        
+            font-size: 3.7vw;
+            line-height: 3.2vw;
+            margin-left: 3vw;
+        
+          }
+       
+    }  
+       
+     
+    
+    
+    /* Medium devices (landscape tablets, 768px and up) */
+
+   
+    @media only screen and (min-width: 543px) and (max-width: 768px){
+    
+        .form_wrap{
+            width: 95vw;
+            height:85%;       
+            margin-left: auto;
+            margin-right: auto;    
+            margin-bottom: 10vw; 
+        
+        }
+
+         /* ===================================CONTACTO========================================== */
+
+          .cantact_info {
+            width: 55vw;
+                      
+        }
+
+        .info_items p{
+            font-size: 2.3vw;
+        }
+
+   
+        .info_title h2 {
+            font-size: 3vw;
+          
+        }
+
+        .info_title .fa-user-circle{
+            font-size: 4vw;
+            margin-left: 16vw;
+        }
+
+      
+          span#map{
+            font-size: 4vw;
+            margin-right: 2vw;
+            color: white;
+          
+          
+          }
+          span#whatsapp {
+           
+            font-size: 1.8vw;
+            margin-right: 2vw;
+            color:white;
+          } 
+          
+          
+          span#envelope{
+            font-size: 1vw;
+            color: white;
+          
+          }  
+          .enviar{
+        
+            font-size: 2.7vw;
+            line-height: 3vw;
+        
+            }
+            
+            .volver{
+          
+              font-size: 2.7vw;
+              line-height: 3vw;
+          
+            }
+       
+    }  
+       
+    
+    /* Large devices (laptops/desktops, 992px and up) */
+    @media only screen and (min-width: 769px) and (max-width: 1024px) {
+       
+   
+
+        .form_wrap{
+            width: 80vw;
+            height:80%;  
+            margin-left: auto;
+            margin-right: auto;    
+            margin-bottom: 10vw; 
+        
+          
+        }
+
+         /* ===================================CONTACTO========================================== */
+
+          .cantact_info {
+            width: 55vw;
+                      
+        }
+
+        .info_items p{
+            font-size: 1.7vw;
+        }
+
+   
+        .info_title h2 {
+            font-size: 2.7vw;
+          
+        }
+
+        .info_title .fa-user-circle{
+            font-size: 4vw;
+            margin-left: 16vw;
+        }
+
+      
+          span#map{
+            font-size: 4vw;
+            margin-right: 2vw;
+            color: white;
+          
+          
+          }
+          span#whatsapp {
+           
+            font-size: 1.8vw;
+            margin-right: 2vw;
+            color:white;
+          } 
+          
+          
+          span#envelope{
+            font-size: 1vw;
+            color: white;
+          
+          }  
+
+          .enviar{
+        
+            font-size: 1.7vw;
+            line-height: 2.5vw;
+        
+            }
+            
+            .volver{
+          
+              font-size: 1.7vw;
+              line-height: 2.5vw;
+          
+            }
+
+     
+    
+    }
+    
+    /* Extra large devices (large laptops and desktops, 1200px and up) */
+    @media only screen and (min-width: 1025px) {
+
+        .form_wrap{
+            width: 80vw;
+            height:80%;     
+            margin-left: auto;
+            margin-right: auto;    
+            margin-bottom: 10vw;   
+      
+         
+        }
+
+         /* ===================================CONTACTO========================================== */
+
+          .cantact_info {
+            width: 55vw;
+                      
+        }
+
+        .info_items p{
+            font-size: 1.5vw;
+        }
+
+   
+        .info_title h2 {
+            font-size: 2.5vw;
+          
+        }
+
+        .info_title .fa-user-circle{
+            font-size: 4vw;
+            margin-left: 16vw;
+        }
+
+      
+          span#map{
+            font-size: 4vw;
+            margin-right: 2vw;
+            color: white;
+          
+          
+          }
+          span#whatsapp {
+           
+            font-size: 1.4vw;
+            margin-right: 2vw;
+            color:white;
+          } 
+          
+          
+          span#envelope{
+            font-size: 0.7vw;
+            color: white;
+          
+          }  
+
+          .enviar{
+        
+            font-size: 1.3vw;
+            line-height: 2.5vw;
+        
+            }
+            
+            .volver{
+          
+              font-size: 1.3vw;
+              line-height: 2.5vw;
+          
+            }
+     
+       
+    }
+
+
+
+      

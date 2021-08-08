@@ -19,12 +19,16 @@ export class MessageService {
     // return this._http.post(" https://dulce-alma-deco.herokuapp.com/send-mail", body);   
     return this._http.post("/send-mail", body); //no se si anda con este endpoint
     }
-
+ 
+  testMessage(body:any) {
+    return this._http.post("http://localhost:8080/order-note",body);
+    }
+  
   sendMercadoPago(body:any){
     console.log(body)
     // let options = this.createRequestOptions();
-    // return this._http.post("http://localhost:8080/checkout",body,{headers: options})
-    return this._http.post("/checkout",body)
+    return this._http.post("http://localhost:8080/checkout",body);
+    // return this._http.post("/checkout",body)
   
   }
   

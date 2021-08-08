@@ -1,39 +1,133 @@
 
 
-    <div class="container-fluid"  id="htmlData">
+
+  
+
+<section class="form_wrap animate__animated animate__fadeIn" *ngIf="!display_none">
+    
+
+    <section class="cantact_info " >
+        <section class="info_title ">
+            <span class="fa fa-user-circle"></span>
+            
+            <h2>NOS ENCONTRAMOS ACA!!</h2>
+        </section>
+        <section class="info_items">
+            <p ><span id="envelope"> <i class="fa fa-envelope"></i></span>  katy_barrozzo99@gmail.com</p>
+
+            <a href="https://www.google.com.ar/maps/place/Dulce+Alma+Deco/@-35.036627,-64.2473898,17z/data=!4m9!1m2!2m1!1sItalia+1820,+Realico,+La+Pampa!3m5!1s0x95c52bf971e10c8b:0xdb3aabb28ff046f8!8m2!3d-35.0348676!4d-64.2431477!15sCh5JdGFsaWEgMTgyMCwgUmVhbGljbywgTGEgUGFtcGGSAQpoYW5kaWNyYWZ0" target="blank" style="text-decoration: none; color: white;">
+
+            <p ><span id="map"><i class="fas fa-map-marker-alt 
+                animate__animated animate__flash"></i></span>Italia 1820,
+                Realicó. La Pampa</p></a>
+            <p> <span id="whatsapp"><i class="fab fa-whatsapp fa-3x" ></i></span>2302 41 6035</p>
+    
+        </section>          
+    </section>
+  
+         
+<form  autocomplete="off" [formGroup]="myForm" id="form"  class="form_contact"> 
+
+    <h2>Info para la factura</h2>  
+
+
+        <label>Nombres y Apellido </label>
+        <input type="text"  class="form-control" formControlName="name" autofocus> 
+        <div>
+            <span class="form-text text-danger animate__animated animate__flash " 
+            *ngIf ="validField ('name')">
+                Incluya al menos un Nombre y Apellido
+            </span> 
+        </div>
+            <br>
+
+        <label>Telefono / Celular </label>
+        <input type="number" class="form-control" formControlName="phone">
+            
+        <div>
+            <span class="form-text text-danger  animate__animated animate__flash "
+             *ngIf ="validField ('phone')">
+                Este campo es obligatorio
+            </span> 
+        </div>
+            <br>
+        
+        <label>Correo electronico</label>
+        <input type="email" class="form-control" formControlName="email" >
+        
+        <div> 
+        <span class="form-text text-danger  animate__animated animate__flash "
+        *ngIf ="validField ('email')">
+           No respeta formato de email / Campo requerido
+       </span> 
+        </div>
+       <br>          
+
+        <label >Mensaje </label>
+        <textarea class="form-control " formControlName="message"></textarea>      
+             
+    
+          
+
+        <button  type="button"  disabled={{clicked}} class=" mt-5 enviar btn btn-success" 
+        (click)="sendForm()" id="font">Enviar </button> 
+        
+        <button type="button" class="mt-5 volver btn btn-primary"  
+           >
+            Volver   </button> 
+
+</form> 
+       
+</section>   
+   
+
+  
+   
+    
+    
+    <!-- ****************************************************** -->
+    <br><br>
+    <div class="container-fluid animate__animated animate__fadeIn"  id="htmlData" *ngIf="display_none">
         <div class="row">
             <div class="col-xs-10 ">
-                <h1>REMITO</h1>
+                <h1 id="font">REMITO</h1>
             </div>
             <div class="col-xs-2">
                 <img class="img-fluid" src="../../../../assets/header.jpg" alt="Logotipo">
             </div>
         </div>
         <hr>
-        <div class="row">
-            <div class="col-xs-10">
-                <h1 class="h6">Natalia A. Barrozo</h1>
-                <h3 >https://dulce-alma-deco.com</h3>
+        <div class="row ">
+            <div class="col-xs-10 font">
+                <h1 >Natalia A. Barrozo</h1>
+                <h4 >https://dulce-alma-deco.com</h4>
+                <h4 >Italia 1820 - Realico La Pampa</h4>
+                <h4 >Cel 2302416035</h4>
             </div>
             <div class="col-xs-2 text-center">
                 <strong>Fecha</strong>
-                <br> {{fecha  | date:'long'}} 
+                <br> <br>
+                {{ fecha  | date:'medium'}} 
                 <br><br>
-                <strong>Factura No.</strong>
-                <br>
-                1
+                
+                <button class="btn btn-primary" type="button" *ngIf="visible">
+                    <span class="spinner-grow spinner-grow-sm" role="status" aria-hidden="true"></span>
+                    Descargando...
+                  </button>
+                  
+                
             </div>
         </div>
         <hr>
-        <div class="row text-center" style="margin-bottom: 2rem;">
+        <div class="row " style="margin-bottom: 2rem;">
             <div class="col-xs-6">
-                <h1 class="h2">Cliente</h1>
-                <strong>Luis Cabrera Benito</strong>
+                <br>
+                <strong>{{name | uppercase}}</strong>
             </div>
              </div>
         <div class="row">
             <div class="col-xs-12">
-                <table class="table table-condensed table-bordered table-striped" >
+                <table class="table" >
                     <thead>
                         <tr>
                             <th>Descripción</th>
@@ -42,36 +136,23 @@
                             <th>Sub-Total</th>
                         </tr>
                     </thead>
+                    <br>
                     <tbody *ngFor="let line of cart.lines">
-                        <td>{{line.producto.name}} </td>
-                        <td>{{line.quantity}} </td>
-                        <td>{{line.producto.price}} </td>
-                        <td>{{line.producto.price * line.quantity}} </td>
+                        <td >{{line.producto.name}} </td>
+                        <td >{{line.quantity}} </td>
+                        <td >{{line.producto.price}} </td>
+                        <td >{{line.producto.price * line.quantity}} </td>
 
                     </tbody>
+                    <br>
                     <tfoot>
-                        <!-- <tr>
-                            <td colspan="3" class="text-right">Subtotal</td>
-                            <td>1111</td>
-                        </tr> -->
-                        <!-- <tr>
-                            <td colspan="3" class="text-right">Descuento</td>
-                            <td>{{2222}}</td>
-                        </tr> -->
-                        <!-- <tr>
-                            <td colspan="3" class="text-right">Subtotal con descuento</td>
-                            <td>{{2222}}</td>
-                        </tr>
-                        <tr>
-                            <td colspan="3" class="text-right">Impuestos</td>
-                            <td>{{2222}}</td>
-                        </tr> -->
+                
                         <tr>
                             <td colspan="3" class="text-right">
                                 <h4><b>Total</b></h4>
                             </td>
-                            <td>
-                                <h4>{{cart.cartPrice | currency:"USD":true:"2.2-2"}}</h4>
+                            <td class="font">
+                                <h4 >{{cart.cartPrice | currency:'CAD':'symbol-narrow':'1.2-2' }}</h4>
                             </td>
                         </tr>
                     </tfoot>
@@ -83,10 +164,59 @@
                 <p class="h5">Gracias por su compra</p>
             </div>
         </div>
+        <br><br>
+        <div>
+        <button class="btn"  (click)="clear()" >Cancelar</button>
+        <button class="btn"  (click)="downloadPDF()">Imprimir</button>
+        <button class="btn" data-bs-toggle="offcanvas" data-bs-target="#offcanvasExample" aria-controls="offcanvasExample"
+        >Pagar</button>
+        </div>
     </div>
+
   
-  <button class="btn btn-success"(click)="clear()" routerLink="/home">Volver</button>
-  <button class="btn btn-warning" (click)="downloadPDF()"  >Imprimir</button>
+
+
+
+
+
+
+    <div class="offcanvas offcanvas-start" tabindex="-1" id="offcanvasExample" aria-labelledby="offcanvasExampleLabel"  >
+
+  
+        <div class="offcanvas-header">
+          <h5 class="offcanvas-title" id="offcanvasExampleLabel">Medios de Pago</h5>
+          <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+        </div>
+        <div class="offcanvas-body">
+          <div>
+            <p>Podes elegir como queres realizar el pago</p>
+          </div>
+          <div class="dropdown mt-3">
+            <button class="btn btn-success dropdown-toggle" type="button" id="dropdownMenuButton" data-bs-toggle="dropdown" >
+              Selecciona como queres pagar
+            </button>
+            <ul class="dropdown-menu"  aria-labelledby="dropdownMenuButton">
+              <li><a class="dropdown-item" (click)="generateBuy()" routerLink="['/home']" routerLinkActive="router-link-active"  >Mercado Pago</a></li>
+              <li><a class="dropdown-item" href="https://www.google.com.ar/maps/place/Dulce+Alma+Deco/@-35.036627,-64.2473898,17z/data=!4m9!1m2!2m1!1sItalia+1820,+Realico,+La+Pampa!3m5!1s0x95c52bf971e10c8b:0xdb3aabb28ff046f8!8m2!3d-35.0348676!4d-64.2431477!15sCh5JdGFsaWEgMTgyMCwgUmVhbGljbywgTGEgUGFtcGGSAQpoYW5kaWNyYWZ0" target="blank">Paso por el local</a></li>
+              <!-- <li><a class="dropdown-item" routerLink="/invoice" >Descargar Nota de Pedido</a></li> -->
+              <!-- <li><a class="dropdown-item" (click)="test()" >test</a></li> -->
+            </ul>
+            <br>    <hr>
+            <div>
+              <img src="./assets/dadeco2.jpg">
+            </div>
+          </div>
+        </div>
+        </div>
+        
+        
+
+        
+            
+        
+          
+           
+
 
 
 

@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-// import { MatDialogRef } from '@angular/material/dialog';
 import { Router } from '@angular/router';
 import { Cart } from 'src/app/model/cart.model';
 import { MessageService } from 'src/app/shared/services/message.service';
@@ -23,16 +22,12 @@ string:any;
 clicked:boolean;
 
 
+
 myForm:FormGroup = this.fb.group({
 name:    ['',[Validators.required,Validators.pattern( this.validatorservice.nameLastName)]],
 phone:   ['',Validators.required],
 email:   ['',[Validators.required, Validators.pattern( this.validatorservice.emailPattern)]],
 message :['']
-// name:    ['marcelo griotti',[Validators.required,Validators.pattern( this.validatorservice.nameLastName)]],
-// phone:   ['2302690139',Validators.required],
-// email:   ['mark@gmail.com',[Validators.required, Validators.pattern( this.validatorservice.emailPattern)]],
-// message :['probando']
-
 });
 
 
@@ -44,18 +39,12 @@ constructor( public messageService: MessageService,
              private cart : Cart,
              private router : Router,
              private fb : FormBuilder
-            //  public dialogRef : MatDialogRef<ContactUsComponent>,
          
             ) 
              { 
              }
             
-  // probando( ){
-  // this.cart.lines.forEach(element => {
-  // this.array.push(element.producto.nombre)
-  //   });
-  // this.string=this.array
-  // }
+
   
   ngOnInit(  ) {
                 }
@@ -102,31 +91,6 @@ onCloseSeguir(){
 }
 
 
-// contactForm(form) {
-
-//   this.messageService.sendMessage(form.value).subscribe(() => {
-//   Swal.fire("Mensaje", "Mensaje enviado correctamente", "success");
-//   });
-//   this.clicked=false    
-//   }
-
-  // formularioCompra(form){
-  //     this.messageService.sendMercadoPago(form.value).subscribe((res) => {
-      
-        
-  //     let response = JSON.stringify(res)
- 
-  //     response = response.replace(/"/g,"")
- 
-  //    location.href =(response)
-      
-      
-  //     console.log('respuesta desde server',response)
-
- 
-  
-  //    });
-  // }    
 
          
                

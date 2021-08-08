@@ -1,9 +1,6 @@
-o
-
-
   
   <br><br>
-  <div class="flex-container">
+  <div class="flex-container animate__animated animate__fadeIn">
   <div class="carrito" > Carro de Compras  </div>
  
  <br> <br>
@@ -33,7 +30,8 @@ o
           
             <input type="number" class="form-control-sm" style="width: 4em;" 
              [value]="line.quantity" 
-             (change)="cart.updateQuantity(line.producto, $event.target.value)">
+             (change)="cart.updateQuantity(line.producto, $event.target.value)"
+             min="1" pattern="^[0-9]+">
 
                       
                        
@@ -42,7 +40,7 @@ o
           
        
          <div class="col-3"> {{line.producto.name}}</div>
-         <div class="col-3"> {{line.producto.price | currency:"USD":true:"2.2-2"}} </div> 
+         <div class="col-3"> {{line.producto.price | currency:'CAD':'symbol-narrow':'1.2-2'}} </div> 
         
          <div class="col-3">    
             
@@ -61,7 +59,7 @@ o
 
      
 
-        <div class="precio" > <b>Total del carrito:   {{cart.cartPrice | currency:"USD":true:"2.2-2"}}</b></div>
+        <div class="precio" > <b>Total del carrito:   {{cart.cartPrice | currency:'CAD':'symbol-narrow':'1.2-2'}}</b></div>
 
 
       </div>
@@ -75,20 +73,19 @@ o
 
                                       
       
-        <button class="keepbuy btn  btn-primary" routerLink="/home"   
+        <button class="keepbuy btn btn-primary" routerLink="/home"   
         (click)="onCloseSeguir()"   >
             Seguir Comprando
          
           </button> 
-         <button class="buy btn btn-success ml-3" id="font" 
+         <button class="buy btn btn-success" id="font" 
               *ngIf="cart.lines.length != 0"  
-              disabled={{clicked}}       
-            
-              data-bs-toggle="offcanvas" data-bs-target="#offcanvasExample" aria-controls="offcanvasExample"
+              disabled={{clicked}}     
+              routerLink="/invoice" 
                >
-                           
-                              
-               Comprar 
+               <!-- (click)="signInWithGoogle()"            
+               data-bs-toggle="offcanvas" data-bs-target="#offcanvasExample" aria-controls="offcanvasExample" -->
+            Procesar Pedido 
              <!-- <div className="spinner-border" role="status">
               <span className="sr-only">Loading...</span>
           </div>   -->
@@ -99,15 +96,8 @@ o
   
     
 
-    <!-- <button class="btn btn-primary" type="button" >
-      Seleccione Medio de Pago
 
-    </button> -->
-
-
-
-
-
+<!-- 
 <div class="offcanvas offcanvas-start" tabindex="-1" id="offcanvasExample" aria-labelledby="offcanvasExampleLabel"  >
 
   
@@ -120,45 +110,52 @@ o
     <p>Podes elegir como queres realizar el pago</p>
   </div>
   <div class="dropdown mt-3">
-    <button class="btn btn-secondary dropdown-toggle animate__animated animate__fadeIn" type="button" id="dropdownMenuButton" data-bs-toggle="dropdown" >
+    <button class="btn btn-success dropdown-toggle" type="button" id="dropdownMenuButton" data-bs-toggle="dropdown" >
       Selecciona como queres pagar
     </button>
     <ul class="dropdown-menu"  aria-labelledby="dropdownMenuButton">
-      <li><a class="dropdown-item" (click)="generateBuy()">Mercado Pago</a></li>
-      <li><a class="dropdown-item" href="#">Transferencia Bancaria</a></li>
+      <li><a class="dropdown-item" (click)="generateBuy()" routerLink="['/home']" routerLinkActive="router-link-active"  >Mercado Pago</a></li>
       <li><a class="dropdown-item" href="https://www.google.com.ar/maps/place/Dulce+Alma+Deco/@-35.036627,-64.2473898,17z/data=!4m9!1m2!2m1!1sItalia+1820,+Realico,+La+Pampa!3m5!1s0x95c52bf971e10c8b:0xdb3aabb28ff046f8!8m2!3d-35.0348676!4d-64.2431477!15sCh5JdGFsaWEgMTgyMCwgUmVhbGljbywgTGEgUGFtcGGSAQpoYW5kaWNyYWZ0" target="blank">Paso por el local</a></li>
-      <li><a class="dropdown-item"    routerLink="/invoice" >Descargar Facturas</a></li>
-      
-      
+      <li><a class="dropdown-item" routerLink="/invoice" >Descargar Nota de Pedido</a></li>
+      <li><a class="dropdown-item" (click)="test()" >test</a></li>
     </ul>
-    <br>
-    <hr>
+    <br>    <hr>
     <div>
       <img src="./assets/dadeco2.jpg">
     </div>
   </div>
 </div>
-</div>
+</div> -->
 
 
+<!-- <div class="card-block">
+  <button class="btn btn-social-icon btn-google mx-1" (click)="signInWithGoogle()"><span class="fab fa-google"></span></button>
+  
+</div> -->
+
+<!-- <div *ngIf="user" class="card text-center">
+
+  <h6 class="card-header">
+    Social Login Demo
+  </h6> -->
+
+  <!-- <div class="card-block">
+  <img *ngIf="user.photoUrl" class="card-img-top img-responsive photo" src="{{ user.photoUrl }}">
+  </div> -->
+
+<!-- <div class="card-block">
+       <h4 class="card-title">{{ user.name }}</h4>
+       <p class="card-text">{{ user.email }}</p>
+       <p class="card-text">Logged in with {{ user.provider }}</p>
+  </div>
+
+  <div class="card-block">
+    <button class="btn btn-danger" (click)="signOut()">Sign out</button>
+  </div>
+ </div> -->
 
 
-    <!-- <form  [formGroup]="myMp" >
-      <ul *ngFor="let line of cart.lines">
-
-
-       
-          <input type="hidden" formControlName="name" (value)="line.name" >
-        
-      
-          <input type="hidden" name="quantity"  [(ngModel)]="line.quantity" >
-      
     
-          <input type="hidden" name="unit_price"  [(ngModel)]="cart.cartPrice" >
- 
-      </ul>
-
-      </form> -->
 
   
    
