@@ -35,7 +35,9 @@ export class InvoiceComponent implements OnInit {
   string:any;
   clicked:boolean;
   display_none: boolean=false;
-  name:string="";
+  name:string='';
+  phone:string='';
+  email:string='';
 
   myForm:FormGroup = this.fb.group({
   name:    ['',[Validators.required,Validators.pattern( this.validatorservice.nameLastName)]],
@@ -46,6 +48,9 @@ export class InvoiceComponent implements OnInit {
 
 dataFormToInvoice(){
   this.name= this.myForm.controls.name.value;
+  this.phone= this.myForm.controls.phone.value;
+  this.email= this.myForm.controls.email.value;
+
 
 }
   
@@ -103,8 +108,8 @@ dataFormToInvoice(){
       text: "",
       icon: 'warning',
       showCancelButton: true,
-      confirmButtonColor:'#ff7827',
-      cancelButtonColor:  '#ff7827',
+      confirmButtonColor:'#ff7f50',
+      cancelButtonColor:  '#ff7f50',
       confirmButtonText: 'Si, Cancelar Compra!'
     }).then((result) => {
       if (result.isConfirmed) {

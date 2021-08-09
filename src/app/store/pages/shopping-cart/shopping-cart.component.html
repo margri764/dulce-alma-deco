@@ -45,7 +45,7 @@
          <div class="col-3">    
             
              <a routerLink="/store/shopping-cart" (click)="cart.removeLine(line.producto.id)"> 
-               <span class="material-icons ">
+               <span class="material-icons">
                 delete_forever
                 </span>
               </a> 
@@ -68,20 +68,18 @@
        <br><br>
 
 
-    <div class="d-flex flex-row justify-content-center">
-
-
-                                      
+      <div class="d-flex justify-content-center">                           
       
-        <button class="keepbuy btn btn-primary" routerLink="/home"   
-        (click)="onCloseSeguir()"   >
+        <button class="btn" routerLink="/home"  
+            (click)="onCloseSeguir()">
             Seguir Comprando
          
           </button> 
-         <button class="buy btn btn-success" id="font" 
+         <button  class="btn" style="margin-left: 5px;"  id="font" 
               *ngIf="cart.lines.length != 0"  
               disabled={{clicked}}     
               routerLink="/invoice" 
+            
                >
                <!-- (click)="signInWithGoogle()"            
                data-bs-toggle="offcanvas" data-bs-target="#offcanvasExample" aria-controls="offcanvasExample" -->

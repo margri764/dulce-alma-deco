@@ -1,4 +1,4 @@
-import { Component, OnInit, Renderer2 } from '@angular/core';
+import { Component, ElementRef, HostListener, OnInit, Renderer2, ViewChild } from '@angular/core';
 import { SocialAuthService, GoogleLoginProvider, SocialUser } from 'angularx-social-login';
 import { Router } from '@angular/router';
 import { Cart } from 'src/app/model/cart.model';
@@ -33,7 +33,9 @@ export class ShoppingCartComponent implements OnInit {
   navbarOpen:boolean;
   arrayProducts=[];
   lines: Products;
+  isActive:boolean=false;
 
+ 
 
   constructor( public cart: Cart,
                public messageService: MessageService ,
@@ -45,8 +47,16 @@ export class ShoppingCartComponent implements OnInit {
   {  }      
 
 
+  btnHover(){
+    
+    this.isActive= !this.isActive;
 
-
+   }
+      
+    
+      
+  //   }
+    // 
 generateBuy() {
 
   this.message();
