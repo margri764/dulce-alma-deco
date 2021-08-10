@@ -27,8 +27,8 @@ export class MessageService {
   sendMercadoPago(body:any){
     console.log(body)
     // let options = this.createRequestOptions();
-    return this._http.post("http://localhost:8080/checkout",body);
-    // return this._http.post("/checkout",body)
+    // return this._http.post("http://localhost:8080/checkout",body);
+    return this._http.post("/checkout",body)
   
   }
   

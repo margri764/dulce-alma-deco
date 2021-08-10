@@ -38,6 +38,9 @@ export class InvoiceComponent implements OnInit {
   name:string='';
   phone:string='';
   email:string='';
+  bufferX: number= 0;
+  bufferY: number= 0; 
+
 
   myForm:FormGroup = this.fb.group({
   name:    ['',[Validators.required,Validators.pattern( this.validatorservice.nameLastName)]],
@@ -66,6 +69,18 @@ dataFormToInvoice(){
     // this.downloadPDF();
 
   }
+t(){
+  if(screen.width > 300 && screen.width < 400){
+    this.bufferX = 100;
+    this.bufferY = 100;
+    console.log(this.bufferX)
+   
+}else{
+   this.bufferX = 15;
+   this.bufferY = 15;
+   console.log(this.bufferX)
+  }
+}
 
   downloadPDF() {
     this.visible=true;
@@ -74,22 +89,34 @@ dataFormToInvoice(){
     const doc = new jsPDF('p', 'pt', 'a4');
     const options = {
       background: 'white',
-      scale: 3
+      scale: 3,
+   
     };
+
     html2canvas(DATA, options).then((canvas) => {
-
-      const img = canvas.toDataURL('./assets/1.jpg');
-
+  
+      const img = canvas.toDataURL('image/png');
+    
+     
       // Add image Canvas to PDF
-      const bufferX = 15;
-      const bufferY = 15;
+      if(screen.width > 300 && screen.width < 700){
+          this.bufferX = 100;
+          this.bufferY = 100;
+         
+      }else{
+         this.bufferX = 15;
+         this.bufferY = 15;
+      }
+      // const bufferX = 100;
+      // const bufferY = 100;
       const imgProps = (doc as any).getImageProperties(img);
-      const pdfWidth = doc.internal.pageSize.getWidth() - 2 * bufferX;
+      const pdfWidth = doc.internal.pageSize.getWidth() - 2 * this.bufferX;
       const pdfHeight = (imgProps.height * pdfWidth) / imgProps.width;
-      doc.addImage(img, 'PNG', bufferX, bufferY, pdfWidth, pdfHeight, undefined, 'FAST');
+    
+      doc.addImage(img, 'PNG', this.bufferX, this.bufferY, pdfWidth, pdfHeight, undefined, 'FAST');
       return doc;
     }).then((docResult) => {
-      docResult.save(`${new Date().toISOString()}DulceAlmaDeco.pdf`);
+      docResult.save(`${new Date().toISOString()}_DulceAlmaDeco.pdf`);
       this.visible=false;
     });
  
