@@ -61,8 +61,7 @@ generateBuy() {
 
   this.message();
   setTimeout(() => { 
-    this.test();
-    this.callToBackend();    
+     this.callToBackend();    
   }, 3800);
   
 
@@ -109,24 +108,7 @@ callToBackend(){
   //     console.log(res);
   //   })
   // }
-  test(){
-    this.cart.lines.forEach((line)=>{
-      this.lines=({ 
-       quantity: line.quantity,
-       title: line.producto.name,
-       unit_price: parseInt(line.producto.price)
-
-      });
-      this.arrayProducts.push(this.lines);
-     });
-    this.messageService.testMessage(this.arrayProducts).subscribe((res)=>{
-      if(res=="true"){
-        this.message();
-      }
-      return
-
-    })
-  }
+  
 
   
   

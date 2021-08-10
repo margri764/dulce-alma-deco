@@ -11,6 +11,15 @@ import { Router } from '@angular/router';
 interface Products {
   quantity: number,
   title: string,
+  unit_price: number,
+  name: string,
+  email: string,
+  phone: number,
+  fecha: Date
+}
+interface MPProducts {
+  quantity: number,
+  title: string,
   unit_price: number
 }
 
@@ -25,8 +34,9 @@ interface Products {
 export class InvoiceComponent implements OnInit {
 
   fecha: Date = new Date(); 
-  arrayProducts=[];
+  arrayProducts: Products[]=[];
   lines: Products;
+  linesMP: MPProducts;
   quantity:any;
   visible:boolean=false;
     
@@ -36,14 +46,14 @@ export class InvoiceComponent implements OnInit {
   clicked:boolean;
   display_none: boolean=false;
   name:string='';
-  phone:string='';
+  phone:number;
   email:string='';
   bufferX: number= 0;
   bufferY: number= 0; 
 
 
   myForm:FormGroup = this.fb.group({
-  name:    ['',[Validators.required,Validators.pattern( this.validatorservice.nameLastName)]],
+  name:    ['',[Validators.required, Validators.pattern( this.validatorservice.nameLastName)]],
   phone:   ['',Validators.required],
   email:   ['',[Validators.required, Validators.pattern( this.validatorservice.emailPattern)]],
   message :['']
@@ -69,18 +79,6 @@ dataFormToInvoice(){
     // this.downloadPDF();
 
   }
-t(){
-  if(screen.width > 300 && screen.width < 400){
-    this.bufferX = 100;
-    this.bufferY = 100;
-    console.log(this.bufferX)
-   
-}else{
-   this.bufferX = 15;
-   this.bufferY = 15;
-   console.log(this.bufferX)
-  }
-}
 
   downloadPDF() {
     this.visible=true;
@@ -107,8 +105,7 @@ t(){
          this.bufferX = 15;
          this.bufferY = 15;
       }
-      // const bufferX = 100;
-      // const bufferY = 100;
+      
       const imgProps = (doc as any).getImageProperties(img);
       const pdfWidth = doc.internal.pageSize.getWidth() - 2 * this.bufferX;
       const pdfHeight = (imgProps.height * pdfWidth) / imgProps.width;
@@ -152,7 +149,29 @@ t(){
 
   }
 
+  emailInvoice(){
+    this.cart.lines.forEach((line)=>{
+      this.lines=({ 
+       quantity: line.quantity,
+       title: line.producto.name,
+       unit_price: parseInt(line.producto.price),
+       name: this.name,
+       phone: this.phone,
+       email: this.email,
+       fecha: this.fecha
 
+
+      });
+      this.arrayProducts.push(this.lines);
+     });
+    this.messageService.emailToNodemailer(this.arrayProducts).subscribe((res)=>{
+      if(res=="true"){
+        console.log("data sent")
+      }
+      return
+
+    })
+  }
   
 
   ngOnInit(): void {
@@ -163,8 +182,8 @@ t(){
 
     this.message();
     setTimeout(() => { 
-      // this.test();
-      this.callToBackend();    
+      this.emailInvoice();
+      // this.callToBackend();    
     }, 3800);
     
   
@@ -183,10 +202,11 @@ t(){
   callToBackend(){
   
       this.cart.lines.forEach((line)=>{
-         this.lines=({ 
+         this.linesMP=({ 
           quantity: line.quantity,
           title: "Productos Seleccionados",
-          unit_price: parseInt(line.producto.price)
+          unit_price: parseInt(line.producto.price),
+          
   
          });
         });
