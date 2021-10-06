@@ -7,21 +7,9 @@ import Swal from 'sweetalert2';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ValidatorService } from '../../validator/validator.service';
 import { Router } from '@angular/router';
+import { Products, MPProducts } from '../interfaces';
 
-interface Products {
-  quantity: number,
-  title: string,
-  unit_price: number,
-  name: string,
-  email: string,
-  phone: number,
-  fecha: Date
-}
-interface MPProducts {
-  quantity: number,
-  title: string,
-  unit_price: number
-}
+
 
 @Component({
   selector: 'app-invoice',
@@ -97,15 +85,14 @@ dataFormToInvoice(){
     
      
       // Add image Canvas to PDF
-      if(screen.width > 300 && screen.width < 700){
-          this.bufferX = 100;
-          this.bufferY = 100;
+
+      (screen.width > 300 && screen.width < 700) ?
+      [this.bufferX = 100, this.bufferY = 100]
          
-      }else{
-         this.bufferX = 15;
-         this.bufferY = 15;
-      }
+      :[ this.bufferX = 15, this.bufferY = 15]
       
+    
+          
       const imgProps = (doc as any).getImageProperties(img);
       const pdfWidth = doc.internal.pageSize.getWidth() - 2 * this.bufferX;
       const pdfHeight = (imgProps.height * pdfWidth) / imgProps.width;
@@ -163,6 +150,8 @@ dataFormToInvoice(){
 
       });
       this.arrayProducts.push(this.lines);
+      this.cart.clear()
+      this.router.navigateByUrl('/home');
      });
     this.messageService.emailToNodemailer(this.arrayProducts).subscribe((res)=>{
       if(res=="true"){
@@ -183,7 +172,7 @@ dataFormToInvoice(){
     this.message();
     setTimeout(() => { 
       this.emailInvoice();
-      // this.callToBackend();    
+      this.callToBackend();    
     }, 3800);
     
   

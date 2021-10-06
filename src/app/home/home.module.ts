@@ -1,27 +1,32 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { ReactiveFormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
-import { MatIconModule } from '@angular/material/icon';
-import { MatButtonModule} from '@angular/material/button';
+
 
 import { HomeComponent } from './pages/home/home.component';
 import { ContactUsComponent } from './pages/contact-us/contact-us.component';
+import { LoginComponent } from './pages/login/login.component';
+import { ValidatorService } from '../shared/validator/validator.service';
 
 
 
 
 
 @NgModule({
+
+
   declarations: [
     HomeComponent,
-    ContactUsComponent
+    ContactUsComponent,
+    LoginComponent
   ],
+
   imports: [
     CommonModule,
     ReactiveFormsModule,
-    MatIconModule,
-    MatButtonModule
+    FormsModule
+
 
 
   ],
@@ -31,3 +36,18 @@ import { ContactUsComponent } from './pages/contact-us/contact-us.component';
   ]
 })
 export class HomeModule { }
+
+// MatAutocompleteModule,
+// MatButtonModule,
+// MatCardModule,
+// MatDialogModule,
+// MatFormFieldModule,
+// MatGridListModule,
+// MatInputModule,
+// MatListModule,
+// MatIconModule,
+// MatProgressSpinnerModule,
+// MatSelectModule,
+// MatSidenavModule,
+// MatSnackBarModule,
+// MatToolbarModule

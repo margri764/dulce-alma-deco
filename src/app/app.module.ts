@@ -2,12 +2,12 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { LOCALE_ID, NgModule } from '@angular/core';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { AppRoutingModule } from './app-routing.module';
 import { SharedModule } from './shared/shared.module';
 import { HomeModule } from './home/home.module';
 import { OverlayModule } from '@angular/cdk/overlay';
-import { MatDialogModule, MatDialogRef } from '@angular/material/dialog';
+import { MatDialogModule } from '@angular/material/dialog';
 import { SocialLoginModule, SocialAuthServiceConfig, GoogleLoginProvider}  from 'angularx-social-login';
 
 
@@ -24,6 +24,9 @@ registerLocaleData( localeEs );
 
 //components
 import { AppComponent } from './app.component';
+import { WorkshopModule } from './workshop/workshop.module';
+import { InterceptorService } from './interceptors/interceptor.service';
+import { ProtectedModule } from './protected/protected.module';
 
 
 
@@ -38,6 +41,7 @@ import { AppComponent } from './app.component';
     SharedModule,
     HttpClientModule,
     HomeModule,
+    WorkshopModule,
     BrowserAnimationsModule,
     OverlayModule,
     MatDialogModule,
@@ -47,6 +51,12 @@ import { AppComponent } from './app.component';
   ],
   
   providers: [
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: InterceptorService,
+      multi: true
+    },
+
  
    {
     provide: 'SocialAuthServiceConfig',

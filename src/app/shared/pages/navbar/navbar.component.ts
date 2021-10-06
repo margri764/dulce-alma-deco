@@ -35,13 +35,13 @@ export class NavbarComponent implements OnInit, DoCheck {
              )
               { 
 
-                this.ruta.params.subscribe(params=> {
+            //     this.ruta.params.subscribe(params=> {
           
-                this.numero=servicio.itemsProductos()
+            //     this.numero=servicio.itemsProductos()
                
       
                           
-             });
+            //  });
           
        
                 

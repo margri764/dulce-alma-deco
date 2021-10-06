@@ -1,3 +1,4 @@
+import { HttpErrorResponse } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
@@ -20,6 +21,8 @@ start:true;
 array: any []=[] 
 string:any;
 clicked:boolean;
+hidden: boolean = true;
+
 
 
 
@@ -64,32 +67,73 @@ onCloseSeguir(){
   }
 
   sendForm (){
+   
     if ( this.myForm.invalid ) {
       this.myForm.markAllAsTouched();
       return;
     }
+    this.hidden=false;
 
-      this.messageService.sendMessage(this.myForm.value).subscribe((res) => {
-       
-          if (res) {
-          Swal.fire({
-          position: 'center',
-          icon: 'success',
-          title: 'Mensaje Enviado correctamente!!',
-          showConfirmButton: false,
-          timer: 3000
+      this.messageService.sendMessage(this.myForm.value).subscribe( (res) => {
+          if (res=='true') {
+          this.hidden=false;
+
+        Swal.fire({
+        position: 'center',
+        icon: 'success',
+        title: 'Mensaje Enviado correctamente!!',
+        showConfirmButton: false,
+        timer: 3000
         })
-        console.log(res);
         this.cart.clear();
         this.clicked=false; 
         this.myForm.reset(); 
         this.clicked=false    
-        }
-        },
-      )
+         }
+        },(err: HttpErrorResponse)=> {
 
-}
-
+          this.hidden = true;
+      
+       //error de base dato offline
+            // console.log(err.status) 
+      
+      // error desde los check
+            // console.log(err.error.error.errors.name.message) 
+            
+            //error de desconexion con el back end
+            if(err.status===0){
+              alert ('opps!!')
+              return
+            };
+      
+      
+            if(err.status === 400 || err.status === 403 ){
+      
+              if(err.error.msg){ //error desde el controller (no hay archivo!!)
+                alert(err.error.msg);
+                return
+                };
+      
+              if(err.error.errors){ // error desde los check (nombre obligatorio)
+                const test = err.error.errors;
+      
+                //recorro el arreglo de errores y guardo en "msgs" cada error y muestro la propiedad error
+               test.map(msgs => {
+                 
+                 if(!msgs.msg.includes('Cast'))
+                 alert (msgs.msg)
+                 console.log(msgs)
+               });  
+      
+                return      
+               };
+             
+            };
+             
+         })
+                 
+         }
+      
 
 
          

@@ -1,0 +1,141 @@
+<br><br>
+
+
+<!-- <input type="file"
+(change)="upPicture($event.target.files[0])">
+
+<button type="button"
+class="btn btn-success "
+[disabled]="!upImage"
+(click)="subirImagen()">
+<i class="fa fa-save"></i>
+Guardar
+</button> -->
+
+<div class="d-flex justify-content-center">
+  <div class="card" >
+    <div class="card-body">
+
+        <form [formGroup]="formTemplate" (submit)="sendProductsToBackend(formTemplate.value)" >
+
+          <div class="text-center">
+          <img [src]="imgSrc" width="350px" height="250px" (click)="fileUploader.click()" >
+          </div>
+
+          <div class="form-group">
+          <br>
+            <input type="file" class="form-control"  accept="image/*"
+            (change)="showPreview($event.target.files[0])" #fileUploader
+            style="display: none;" >     
+          </div>
+          {{imgTemplate || "Sin archivos."}}
+
+          <button mat-mini-fab color="primary" class="upload-btn"
+          (click)="fileUploader.click()">
+           <mat-icon>attach_file</mat-icon>          
+          </button>
+
+          <div class="progress" *ngIf="uploadProgress" >
+
+            <mat-progress-bar class="progress-bar" mode="determinate"
+                         [value]="uploadProgress" *ngIf="uploadProgress">
+            
+            </mat-progress-bar>
+            
+            
+            </div>
+          
+
+            <div class="my-spinner container align-items-center" [hidden]="hidden">
+              <div class="spinner"></div>
+           </div>
+
+          <br><br><br>
+        
+          <div class="form-group">
+            <label>Nombre</label>
+            <input type="text" class="form-control" formControlName="name" >
+          </div>
+
+          <span class="form-text text-danger animate__animated animate__tada " 
+          *ngIf ="validField ('name')">
+              No se permiten numeros ni caracteres especiales
+          </span> 
+
+          <br>
+
+          <br>
+           <div class="form-group">
+            <div class="form-check form-check-inline">
+              <input class="form-check-input" type="radio"   value="612106c76bee722f001fd69eNOVA" formControlName="category">
+              <label class="form-check-label" for="inlineRadio1">Fibro Facil</label>
+            </div>
+            <div class="form-check form-check-inline">
+              <input class="form-check-input" type="radio"   value="612106c76bee722f001fd69e" formControlName="category">
+              <label class="form-check-label" for="inlineRadio2">Stencil</label>
+            </div>
+            <div class="form-check form-check-inline">
+              <input class="form-check-input" type="radio"   value="pintura" formControlName="category">
+              <label class="form-check-label" for="inlineRadio3">Pintura</label>
+            </div>
+            <div class="form-check form-check-inline">
+              <input class="form-check-input" type="radio"   value="herramientas" formControlName="category">
+              <label class="form-check-label" for="inlineRadio4">Herramientas</label>
+            </div>
+            <div class="form-check form-check-inline">
+              <input class="form-check-input" type="radio"   value="trabajos" formControlName="category">
+              <label class="form-check-label" for="inlineRadio5">Trabajos</label>
+            </div>
+            <div class="form-check form-check-inline">
+              <input class="form-check-input" type="radio"   value="varios" formControlName="category">
+              <label class="form-check-label" for="inlineRadio6">Varios</label>
+            </div>
+          </div>
+          <span class="form-text text-danger  animate__animated animate__tada"
+          *ngIf ="validField ('category')">
+             Este campo es obligatorio
+         </span> 
+          
+          <br>
+
+          <div class="form-group">
+            <label>Precio</label>
+            <input type="number" class="form-control" formControlName="price" min="0" pattern="^[0-9]+">
+          </div>
+
+            <span class="form-text text-danger  animate__animated animate__tada "
+             *ngIf ="validField ('price')">
+                Este campo es obligatorio, solo numeros positivos
+            </span> 
+          <br>
+
+          <div class="form-group">
+            <span>Descripcion</span>
+            <textarea type="text" class="form-control" formControlName="description" > </textarea>
+          </div>
+          
+          <br>
+          
+          <div class="form-group">
+            <input type="text" formControlName="status" hidden>
+          </div>
+
+          <br>
+            <!-- <div class="form-group col-md-6">
+            <a routerLink="/image/list" class="btn btn-primary btn-block float-right">Go To Gallery</a>
+            </div>  -->
+          <div class="form-row justify-content-center">
+            <div class=" form-group ">
+              <button type="submit" class="btn btn-success ">Enviar</button>     
+              <button type="submit" class="btn btn-success " [routerLink]="['/home']" routerLinkActive="router-link-active" >volver</button>
+            </div>
+          </div>
+
+        </form>
+    </div>
+  </div>
+
+    
+
+
+</div> 

@@ -8,15 +8,19 @@
         <div class="content-wrapper">
         
             <div class="content">
-                <app-header *ngIf="!(router.url === '/invoice')"></app-header>
-          
+                <app-header *ngIf="!(router.url === '/invoice' || router.url === '/store/shopping-cart' ||
+                                     router.url === '/admin' || router.url === '/workshop' || router.url === '/login') && id==false"  >
+                </app-header>
              
             <app-navbar *ngIf="!(router.url === '/carrito' || router.url === '/contactus'
-                            || router.url === '/invoice')">
+                                || router.url === '/invoice' || router.url === '/store/shopping-cart' ||
+                                router.url === '/admin' || router.url === '/workshop' || router.url === '/login' ) && id==false">
             </app-navbar>
             
-            <app-slider-up *ngIf="!(router.url === '/store/wood' || router.url === '/contact-us'
-                                    || router.url === '/popup'   || router.url === '/invoice')" >   
+            <app-slider-up *ngIf="!(router.url === '/store/wood' || router.url === '/contact-us'|| router.url === '/popup'   || router.url === '/invoice'
+                                    || router.url === '/store/shopping-cart' ||router.url === '/admin' 
+                                    || router.url === '/store/stencil' || router.url === '/workshop' 
+                                    || router.url === '/login' || router.url === '/error-page') && id==false" >   
             </app-slider-up>
 
          
@@ -31,8 +35,10 @@
            
             </div>
             <div class="footer">
-                <app-slideoff *ngIf="!(router.url === '/invoice')"></app-slideoff>
-                <app-footer *ngIf="!(router.url === '/invoice')"></app-footer>  
+                <app-slideoff *ngIf="!(router.url === '/invoice' || router.url === '/admin' || router.url === '/login'
+                            || router.url === '/error-page')"></app-slideoff>
+                <app-footer *ngIf="!(router.url === '/invoice' || router.url === '/admin' || router.url === '/workshop' 
+                || router.url === '/login' || router.url === '/error-page')"></app-footer>  
             </div>
         </div>
     </div>

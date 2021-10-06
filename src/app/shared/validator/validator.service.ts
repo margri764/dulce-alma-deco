@@ -7,6 +7,7 @@ import { AbstractControl, FormControl, ValidationErrors } from '@angular/forms';
 export class ValidatorService {
 
   public nameLastName: string = "^[A-Za-zñÑ ]+$";
+  
   public emailPattern: string = "^[a-z0-9._%+-]+@[a-z0-9.-]+\\.[a-z]{2,4}$";
 
   constructor() { }

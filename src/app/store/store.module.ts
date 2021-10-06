@@ -3,12 +3,14 @@ import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
 import { HttpClientModule } from '@angular/common/http';
 import { MatSnackBar} from '@angular/material/snack-bar';
+import { FormsModule } from '@angular/forms'
 
 
 //modules
 import { StoreRoutingModule } from './store-routing.module';
-
+import { MatPaginatorModule} from '@angular/material/paginator';
 import { ReactiveFormsModule } from '@angular/forms';
+// import { MatFormFieldModule } from '@angular/material/form-field';
 
 //components
 import { WoodComponent } from './pages/wood/wood.component';
@@ -16,13 +18,8 @@ import { ShoppingCartComponent } from './pages/shopping-cart/shopping-cart.compo
 import { StencilComponent } from './pages/stencil/stencil.component';
 import { ViewMoreComponent } from './pages/view-more/view-more.component';
 
-
-
 //services
 import { NotificationService } from '../shared/services/notification.service';
-
-
-
 
 
 
@@ -31,9 +28,7 @@ import { NotificationService } from '../shared/services/notification.service';
   providers:[
     MatSnackBar,
     NotificationService,
-
   ],
-
   declarations: [
     WoodComponent,
     ShoppingCartComponent,
@@ -47,9 +42,9 @@ import { NotificationService } from '../shared/services/notification.service';
     RouterModule,
     HttpClientModule,
     ReactiveFormsModule,
-
- 
-  
+    MatPaginatorModule,
+    // MatFormFieldModule,
+    FormsModule
   ],
   exports:[
     WoodComponent,

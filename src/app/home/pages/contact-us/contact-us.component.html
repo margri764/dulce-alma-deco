@@ -27,15 +27,19 @@
 
     <h2>Formulario de Contacto</h2>  
 
-
-        <label>Nombres y Apellido *</label>
-        <input type="text"  class="form-control" formControlName="name" autofocus> 
+    <div class="form-floating " >
+        <!-- <label>Nombres y Apellido *</label> -->
+        <input style="margin-bottom:20px ;" type="text"  class="form-control" id="floatingInput" placeholder="name" formControlName="name" autofocus> 
+        <label  for="floatingInput">Nombre y Apellido</label>
         
-            <span class="form-text text-danger animate__animated animate__tada " 
-            *ngIf ="validField ('name')">
-                Incluya Nombre y Apellido
-            </span> 
-      <br> <br>  
+        <span class="form-text text-danger animate__animated animate__tada " 
+        *ngIf ="validField ('name')">
+            No se permiten numeros ni caracteres especiales
+        </span> 
+    </div>    
+
+    <br> <br>
+   
         <label>Telefono / Celular *</label>
         <input type="number" class="form-control" formControlName="phone">
             <span class="form-text text-danger  animate__animated animate__tada "
@@ -50,24 +54,27 @@
            No respeta formato de email 
        </span> 
        <br>   <br>  
+
+       <div class="my-spinner container align-items-center" [hidden]="hidden">
+        <div class="spinner"></div>
+     </div>
             
          <br>                           
         <label class="mt-5">Mensaje *</label>
         <textarea class="form-control" formControlName="message"></textarea>
 
    
-       
-         
-      
+       <div class="d-flex justify-content-start">         
     
           
 
-        <button  type="button"  disabled={{clicked}} class="enviar btn btn-success" 
+        <button  type="button"  disabled={{clicked}} class="btn" 
         (click)="sendForm()" id="font">Enviar </button> 
         
-        <button type="button" class="volver btn btn-primary"  
+        <button type="button" class="btn" style="margin-left: 15px;"  
             (click)="onCloseSeguir()">
             Volver   </button> 
+        </div>
 
 </form> 
       

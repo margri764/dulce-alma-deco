@@ -1,24 +1,26 @@
 
 
-<div class="flex-container d-flex  justify-content-around" >
+  <div class="flex-container toUp d-flex  justify-content-around" >
 
+    <figure class="snip0015" >
 
-    <figure class="snip0015">
       <img [src]="arrProductos['img']" alt="" >
 
       <figcaption>
-        <h2>{{arrProductos['name']}} </h2>
-        <p><span>MEDIDAS: 30 x 20 cm </span></p> 
-        <p><span>OBSERVACIONES: </span></p>
-        <p><button class="buy btn btn-success" routerLink="/store/shopping-cart" 
-          (click)="addBook(arrProductos); notification()">Agregar al Carrito</button></p>
-        
-        <p class="precio">$ {{arrProductos['price']}}</p>
+       <!-- <h2>{{ arrProductos["price"] }} </h2> -->
+       <h2>{{ arrProductos["name"] }} </h2>
+
+          <!-- <h2>{{ product.name  }} </h2> -->
+
+         <p><span>MEDIDAS: 30 x 20 cm </span></p> 
+         <p><span>OBSERVACIONES: </span></p>  
+        <p class="precio">$ {{ arrProductos['price']}}</p>
+         <p><button class="btn" routerLink="/store/shopping-cart" 
+          (click)="addBook(arrProductos)">Agregar al Carrito</button> 
+        </p> 
+          
       </figcaption>			
     </figure>
 
 
 </div>
-
-
-  

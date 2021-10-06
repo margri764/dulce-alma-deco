@@ -15,7 +15,6 @@ import { MatDialogModule } from '@angular/material/dialog';
 
 //services
 
-import { ValidatorService } from './validator/validator.service';
 
 //components
 import { HeaderComponent } from './pages/header/header.component';
@@ -25,17 +24,13 @@ import { SlideoffComponent } from './pages/slideoff/slideoff.component';
 import { SliderUpComponent } from './pages/slider-up/slider-up.component';
 import { PopupComponent } from './pages/popup/popup.component';
 import { InvoiceComponent } from './pages/invoice/invoice.component';
+import { ErrorPageComponent } from './pages/error-page/error-page.component';
 
 
 
 
 @NgModule({
-  providers:[
-    ValidatorService
- 
-    
-  
-  ],
+
   declarations: [
     HeaderComponent,
     NavbarComponent,
@@ -43,7 +38,8 @@ import { InvoiceComponent } from './pages/invoice/invoice.component';
     SlideoffComponent,
     SliderUpComponent,
     PopupComponent,
-    InvoiceComponent
+    InvoiceComponent,
+    ErrorPageComponent
   ],
 
   imports: [
@@ -69,7 +65,8 @@ import { InvoiceComponent } from './pages/invoice/invoice.component';
     SlideoffComponent,
     SliderUpComponent,
     PopupComponent,
-    InvoiceComponent
-  ]
+    InvoiceComponent,
+    ErrorPageComponent
+ ]
 })
 export class SharedModule { }

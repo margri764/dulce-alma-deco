@@ -1,2 +1,36 @@
-<p>stencil works!</p>
-<a routerLink="/store/test">efefef</a>
+<br><br>
+
+<div class="flex-container animate__animated animate__fadeIn"  id='font'>
+       
+    <div class="d-flex flex-row flex-wrap   align-items-center justify-content-around ">
+         
+       <div class="div-img text-center mt-5"  *ngFor= "let producto of pageSlice, index as i" >
+        
+          <img class="img" [src]="producto.img">                                   
+           
+           <div class="text" id="font">
+            <p id="nombre" >{{producto.name}} $ {{producto.price}}</p>
+        
+              <a   [routerLink]="['/store/view-more',i]">
+                  <p class="vermas text-center text-white" > <b> < VER MÁS > </b> </p> 
+              </a> 
+         
+            </div>
+          
+       </div>      
+  
+  </div>
+    
+</div>
+
+
+
+
+
+<mat-paginator 
+    [pageSizeOptions]="[2, 4, 6, 8]" 
+    [pageSize]="8" 
+    [length]="this.arrayProductos.length"
+    (page)="OnPageChange($event)" >
+</mat-paginator>
+ 

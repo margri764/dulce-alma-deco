@@ -2,7 +2,9 @@ import { Component, OnInit } from '@angular/core';
 import { ImagesService } from '../../../shared/services/images.service';
 import Swal from 'sweetalert2';
 import { Cart } from 'src/app/model/cart.model';
-import { Imagen } from '../../interface';
+import { ImagenBackend } from '../../interface';
+import { interval, Observable, timer } from 'rxjs';
+import { Router } from '@angular/router';
 
 
 @Component({
@@ -12,26 +14,51 @@ import { Imagen } from '../../interface';
 })
 export class WoodComponent implements OnInit {
 
-  arrayProductos : Imagen []=[];
+  arrayProductos : ImagenBackend []=[];
   numero : any;  
   cartel : any;
+  hidden:boolean = false
+
+  get productWood(){
+    if(this.servicio.productWood.length != 0 ){
+      this.hidden=true;
+    }
+    return this.servicio.productWood; 
+   }
 
   constructor(
             public servicio :  ImagesService, 
-            public cart : Cart
+            public cart : Cart,
+            public router : Router
   ) { 
-              this.arrayProductos = servicio.getProductos();
-              this.servicio= servicio.getIndex("id");
-              this.numero= servicio.itemsProductos();
+              // this.arrayProductos = servicio.getProductsFromBackend();
+              // this.servicio= servicio.getIndex("id");
+              // this.numero= servicio.itemsProductos();
   }
 
   ngOnInit() { 
 
+    // this.servicio.getProductsFromBackend().subscribe( (res: any) => {
+     
+    //     this.hidden= true;
+    //     this.arrayProductos = res.product
+    // });
+    this.servicio.getProductsFromBackend();
+  
+    
 
   
-    }// fin ngOnInit
-  
-      addBook(producto: Imagen){
+    setTimeout(()=>{
+    this.hidden= true
+    if(this.servicio.productWood.length === 0){
+    this.router.navigateByUrl('/error-page')}
+    },10000);
+   
+   }// fin ngOnInit
+
+   
+
+      addBook(producto: ImagenBackend){
         this.cart.addLine(producto)
       }
     
@@ -40,9 +67,9 @@ export class WoodComponent implements OnInit {
         return this.cartel
      }
 
-    
+   
         
-      }
+}
 
 
 

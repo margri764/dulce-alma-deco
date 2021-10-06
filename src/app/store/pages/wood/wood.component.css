@@ -4,7 +4,34 @@
      
   }
   
-     
+  .container{
+    display: flex;
+    gap: 20px;
+    flex-direction: column;
+    flex-wrap: wrap;
+  
+  }
+  .spinner {
+    border: 8px solid rgba(0, 0, 0, 0.1);
+    width: 20vh;
+    height: 20vh;
+    border-radius: 50%;
+    border-left-color: rgb(255, 0, 0);
+    margin-top: 10vw;
+  
+    animation: spin 0.9s ease infinite;
+  }
+  
+  @keyframes spin {
+    0% {
+      transform: rotate(0deg);
+    }
+  
+    100% {
+      transform: rotate(360deg);
+    }
+  }
+  
   
   
   /* -------------------------------------------@media query------------------------------------ */
@@ -88,8 +115,7 @@
       line-height: 5vw;
       opacity: 1;
       font-family:'ribeye';
-      font-size: 4.2vw;
-    
+      font-size: 4.2vw;    
     }   
     
     .vermas:hover{
@@ -391,20 +417,23 @@
     .vermas{
       transform: translate(0px, -14px);      
       max-width: 50%;
-      background-color:rgb(243, 97, 39);
+      background-color: rgb(253, 8, 8); 
       margin-top: 0px;
       margin:auto;
       line-height: 1.8vw;
       opacity: 1;
       font-family:'ribeye';
-      font-size: 1.4vw;
-    
-  
+      font-size: 1.2vw;  
     }   
+    /* box-shadow: 1px 1px 2px rgb(100, 97, 97);
+   
+    color: antiquewhite;  */
+  
     
     .vermas:hover{
     
-            background-color: rgb(252, 73, 2);
+      background-color: rgb(253, 8, 8); 
+
             max-width: 100%;
             font-weight: bold;
             opacity: 1;

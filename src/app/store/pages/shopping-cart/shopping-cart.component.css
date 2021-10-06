@@ -63,9 +63,9 @@
 }
 
 .carrito {
-
+  background-color: coral;
+  background-image: linear-gradient(30deg, rgb(255, 30, 0),rgb(255, 74, 74));
   
-  background-image: linear-gradient(90deg, darkorange, rgb(243, 180, 104));
   width: 99%;
   height: 25vw; 
   display: flex;
@@ -105,21 +105,8 @@ img{
   width: 100%;
 }
 
-.keepbuy{
-  background-image: linear-gradient(30deg, rgb(17, 0, 255),rgb(92, 81, 253));
-  font-family: 'ribeye';
-  font-size: 5vw;
-  line-height: 3vw;
-  box-shadow: 3px 3px 7px rgb(108, 108, 150);
-  margin-right: 10px;
-}
-.buy{
-  background-image: linear-gradient(30deg,rgb(9, 145, 9) ,rgb(44, 138, 44));
-  font-family:'ribeye' ;
-  font-size: 1.7vw;
-  line-height: 2.6vw;
-  box-shadow: 3px 3px 7px rgb(2, 63, 12);
-}
+
+
 /* ---------------------------------------@media------------------------------------------ */
 
 
@@ -143,23 +130,15 @@ img{
   
 }
 .font{
-  font-size: 4.5vw;
+  font-size: 2.5vw;
   
 }
 
 h2{
   font-family: 'ribeye';
-  font-size: 4vw;
+  font-size: 2.5vw;
 }
-.keepbuy{
 
-  font-size: 3.6vw;
- 
-}
-.buy{
-  font-size: 3.6vw;
-  line-height: 3.6vw;
-}
 
 .row.font{
   font-size: 4vw;
@@ -197,20 +176,13 @@ input{
     }
     
    
-    .keepbuy{
-    
-      font-size: 3.2vw;
-     
-    }
+ 
     .precio b{
   
       font-size: 3vw;
     }
 
-    .buy{
-      font-size: 3.2vw;
-      line-height: 2.6vw;
-    }
+  
     .row.font{
       font-size: 3vw;
     }
@@ -245,16 +217,7 @@ input{
     }
     
 
-    .keepbuy{
-    
-      font-size: 1.7vw;
-      line-height: 2.6vw;
-     
-    }
-    .buy{
-      font-size: 1.7vw;
-      line-height: 2.6vw;
-    }
+
     .precio b{
   
       font-size: 1.6vw;
@@ -283,27 +246,18 @@ input{
       
     }
     .font{
-      font-size: 2vw;
+      font-size: 1.5vw;
       
     }
     
 
-    .keepbuy{
-    
-      font-size: 1.7vw;
-      line-height: 2.6vw;
-     
-    }
-    .buy{
-      font-size: 1.7vw;
-      line-height: 2.6vw;
-    }
+   
     .precio b{
   
-      font-size: 1.6vw;
+      font-size: 1.5vw;
     }
     .row.font{
-      font-size: 2vw;
+      font-size: 1.5vw;
     }
 
   }

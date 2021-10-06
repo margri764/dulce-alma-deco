@@ -11,14 +11,13 @@ import { filter } from 'rxjs/operators';
 export class AppComponent implements OnInit {
   title = 'dulce-alma-deco';
 
-  id:string;
+  id:boolean=false;
 
   constructor( public router : Router,
                private ruta : ActivatedRoute,
    )
    {
- 
- 
+  
   }
 
 
@@ -26,10 +25,9 @@ ngOnInit()   {
   this.router.events
   .pipe(filter(evt => evt instanceof NavigationEnd))  
   .subscribe((event: NavigationEnd) => {
-   if(event.url!= '/store/view-more/'){
-    this.id='hide';
-  
-   }
+   (event.url.includes('/store/view-more/')) 
+   ?  this.id=true : this.id=false;
+   
   });
 
 }

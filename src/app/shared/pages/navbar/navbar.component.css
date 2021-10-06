@@ -6,18 +6,23 @@
   }
 
 
-  /* .animate__animated.animate__flash { */
-
     mat-icon{
       --animate-duration: 4000ms;
 
     }
     
+    .dropdown-item:hover{
+      box-shadow: 1px 1px 2px rgb(100, 97, 97);
+      background-color: rgb(253, 8, 8);  
+      color: antiquewhite; 
+    }
+  
  
-    
+/*     
     a{
     text-decoration: none;
-    }
+    color: rgba(253, 8, 8, 0.89);
+    } */
     
    
   
@@ -25,9 +30,8 @@
   
       box-shadow: 5px 5px 10px rgb(100, 97, 97);
   
-      
-    } 
-  
+       }
+    
   /* ------------------------------------@media------------------------------------- */
   
   
@@ -42,11 +46,16 @@
     .navbar-brand{
       font-family:'ribeye';
       font-size: 4.6vw;
-      color: coral;
+      color: rgba(253, 8, 8, 0.89);
       font-weight: bold;  
-      text-shadow: 1px 1px 2px rgb(248, 209, 165);
+      text-shadow: 1px 1px 2px rgba(253, 8, 8, 0.815);
        
       }
+      .navbar-brand:hover{
+        color: rgb(253, 8, 8);    
+        text-shadow: 2px 2px 2px rgba(253, 8, 8, 0.815);        
+      } 
+  
      
     
     
@@ -93,16 +102,16 @@
        .navbar-brand{
         font-family:'ribeye';
         font-size: 2.8vw;
-        text-shadow: 1px 1px 2px rgb(248, 209, 165);
-     
-       
+        text-shadow: 1px 1px 2px rgba(253, 8, 8, 0.815);
+        color: rgba(253, 8, 8, 0.89);       
       }
+      .navbar-brand:hover{
+        color: rgb(253, 8, 8);    
+        text-shadow: 2px 2px 2px rgba(253, 8, 8, 0.815);        
+      } 
+  
       
-    
-      .nav-item{
-        
-          /* margin-top: 10px; */
-      }
+
     
       #font .nav-item{
         font-family:'ribeye';
@@ -123,47 +132,37 @@
      
      }
     
-     
+      
     
-
-    
-   
-    
-    a{
+    /* a{
     text-decoration: none;
+    color: rgba(253, 8, 8, 0.89);
     }
-    
+     */
   
     }
     
     /* Large devices (laptops/desktops, 992px and up) */
     @media only screen and (min-width: 768px) and (max-width: 1024px) {
   
-      .navbar{
-   
-        /* margin-top: 2vw;
-        height: 4.5vw;
-      */
-    
-        
-      }
         .navbar-brand{
         font-family:'ribeye';
         font-size: 2.2vw;
-        color: coral;
+        color: rgba(253, 8, 8, 0.89);
         font-weight: bold;
-        text-shadow: 1px 1px 2px rgb(248, 209, 165);
-     
-       
+        text-shadow: 1px 1px 2px rgba(253, 8, 8, 0.815);
+           
       }
+      .navbar-brand:hover{
+        color: rgb(253, 8, 8);    
+        text-shadow: 2px 2px 2px rgba(253, 8, 8, 0.815);        
+      } 
+  
       .navbar-nav{
         margin-left: 35vw;
       }
     
-      .nav-item{
-       
-           /* margin-top: 10px; */
-      }
+   
     
       #font .nav-item{
         font-family:'ribeye';
@@ -178,13 +177,7 @@
         box-shadow: 5px 5px 10px rgb(100, 97, 97); 
      }
     
-     .dropdown-item:hover{
-      
-      background-color: coral;
-      font-weight: bold;
-     
-     }
-    
+  
     
   }
     
@@ -192,19 +185,20 @@
   /* Extra Large devices (laptops/desktops, 1280px and up) */ 
   @media only screen and (min-width: 1025px) {
     
-    .navbar{
-    
-      /* height: 3.2vw; */
-         
-    }
+  
     
     .navbar-brand{
       font-family:'ribeye';
       font-size: 1.9vw;
-      color: coral;
+      color: rgba(253, 8, 8, 0.89);     
       font-weight: bold;
-      text-shadow: 1px 1px 2px rgb(248, 209, 165);
+      text-shadow: 1px 1px 2px rgba(253, 8, 8, 0.815);
     }
+    .navbar-brand:hover{
+      color: rgb(253, 8, 8);    
+      text-shadow: 2px 2px 2px rgba(253, 8, 8, 0.815);        
+    } 
+
     .navbar-nav{
       margin-left: 42vw;
     }
@@ -218,14 +212,14 @@
   
   
   
-  
    .dropdown-menu{
     font-family:'ribeye';
-    font-size: 1.6vw;
+    font-size: 1.2vw;
     width: 30vw;
     box-shadow: 5px 5px 10px rgb(100, 97, 97); 
   }
-  
+
+
   
   
   }
