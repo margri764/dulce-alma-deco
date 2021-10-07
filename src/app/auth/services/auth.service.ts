@@ -43,7 +43,8 @@ export class AuthService {
   // }
 
   validarToken(): Observable<boolean> {
-    const url = `${this.baseUrl}/auth/renew`;
+    const url = '/auth/renew';
+    // const url = `${this.baseUrl}/auth/renew`;
 
     const headers = new HttpHeaders()
       .set('x-token', localStorage.getItem('token') || '' );
@@ -70,8 +71,9 @@ export class AuthService {
 
   login( email: string, password: string ) {
    
-    const url  = `${this.baseUrl}/api/auth/login`;
-    const body = { email, password };
+    const url  = '/api/auth/login';
+    // const url  = `${this.baseUrl}/api/auth/login`;
+        const body = { email, password };
 
     return this.http.post<AuthResponse>( url, body )
     .pipe(

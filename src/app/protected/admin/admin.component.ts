@@ -148,7 +148,9 @@ validField( field: string ) {
       // const options = this.createRequestOptions();
 
     
-     const upload = this.http.post( `${this.baseUrl}/products`, formData,  {
+     const upload = this.http.post( 'api/products', formData,  {
+    //  const upload = this.http.post( `${this.baseUrl}/products`, formData,  {
+      
       // headers: options,
       reportProgress: true,
       observe: 'events'
