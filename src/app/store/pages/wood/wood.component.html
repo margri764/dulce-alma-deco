@@ -1,20 +1,20 @@
 
-
+<h1>Cantidad de Items: {{numItem}}</h1>
 
 
    <div class="flex-container animate__animated animate__fadeIn"  id='font'>
        
     <div class="d-flex flex-row flex-wrap   align-items-center justify-content-around ">
       
-       <div class="div-img text-center mt-5"  *ngFor= "let producto of productWood, index as i" >
+       <div class="div-img text-center mt-5"  *ngFor= "let item of productWood, index as i" >
     
-          <img class="img" [src]="producto.img">                                   
+          <img class="img" [src]="item.img">                                   
          
        
               
            <div class="text" id="font">
 
-            <p id="nombre" >{{producto.name}} $ {{producto.price}}</p>
+            <p id="nombre" >{{item.name}} $ {{item.price}}</p>
 
          
               <a   [routerLink]="['/store/view-more',i]">

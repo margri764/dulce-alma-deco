@@ -76,7 +76,7 @@ onCloseSeguir(){
 
       this.messageService.sendMessage(this.myForm.value).subscribe( (res) => {
           if (res=='true') {
-          this.hidden=false;
+          this.hidden=true;
 
         Swal.fire({
         position: 'center',

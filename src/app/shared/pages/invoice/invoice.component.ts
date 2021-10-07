@@ -8,6 +8,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ValidatorService } from '../../validator/validator.service';
 import { Router } from '@angular/router';
 import { Products, MPProducts } from '../interfaces';
+import { HttpErrorResponse } from '@angular/common/http';
 
 
 
@@ -26,11 +27,8 @@ export class InvoiceComponent implements OnInit {
   lines: Products;
   linesMP: MPProducts;
   quantity:any;
-  visible:boolean=false;
-    
-  start:true;  
-  array: any []=[] 
-  string:any;
+  visible:boolean = false;
+  spinnerOn = false;
   clicked:boolean;
   display_none: boolean=false;
   name:string='';
@@ -51,9 +49,7 @@ dataFormToInvoice(){
   this.name= this.myForm.controls.name.value;
   this.phone= this.myForm.controls.phone.value;
   this.email= this.myForm.controls.email.value;
-
-
-}
+};
   
   
   constructor( public cart: Cart,
@@ -64,13 +60,11 @@ dataFormToInvoice(){
               ) 
               { 
 
-    // this.downloadPDF();
 
   }
 
   downloadPDF() {
     this.visible=true;
-    // Extraemos el
     const DATA = document.getElementById('htmlData');
     const doc = new jsPDF('p', 'pt', 'a4');
     const options = {
@@ -146,38 +140,71 @@ dataFormToInvoice(){
        phone: this.phone,
        email: this.email,
        fecha: this.fecha
-
-
       });
+      
       this.arrayProducts.push(this.lines);
       this.cart.clear()
-      this.router.navigateByUrl('/home');
      });
+      this.spinnerOn = true;
     this.messageService.emailToNodemailer(this.arrayProducts).subscribe((res)=>{
       if(res=="true"){
-        console.log("data sent")
-      }
-      return
+        this.messagePedido();
+        this.spinnerOn = false;
 
-    })
-  }
+
+        setTimeout(() => { 
+          this.router.navigateByUrl('/home');   
+        }, 5000); 
+
+
+      return
+      };
+      
+
+    },(err: HttpErrorResponse)=> { 
+        
+        //error de desconexion con el back end
+        if(err.status===0){
+          alert ('opps!!')
+          return;
+        };
   
+        if(err.status === 500){ //error desde el controller (no hay archivo!!)
+          alert('Valla no pudimos procesar el pedido, intentelo mas tarde o comuniquese con el administrador');
+          return;
+          };
+  
+        if(err.status === 400 || err.status === 403){
+  
+          if(err.error.msg){ //error desde el controller (no hay archivo!!)
+            alert(err.error.msg);
+
+            return;
+            };
+
+             
+        };         
+     })           
+    } 
+   
 
   ngOnInit(): void {
+
   }
 
 
   generateBuy() {
 
-    this.message();
+    this.messageMP();
+    this.messageService.buy = true; 
     setTimeout(() => { 
       this.emailInvoice();
-      this.callToBackend();    
-    }, 3800);
-    
+      this.callToBackendToPay();    
+    }, 3800);   
   
-  }
-  message(){
+  };
+
+  messageMP(){
     Swal.fire({
       position: 'center',
       icon: 'success',
@@ -185,24 +212,34 @@ dataFormToInvoice(){
       showConfirmButton: false,
       timer: 4000
     });
+  };
+
+  messagePedido(){
+    Swal.fire({
+      position: 'center',
+      icon: 'success',
+      title: 'Pedido enviado nos pondremos en contacto, ¡Gracias por tu compra!',
+      showConfirmButton: false,
+      timer: 4000
+    });
+  };
   
-  }
+  callToBackendToPay(){
   
-  callToBackend(){
-  
-      this.cart.lines.forEach((line)=>{
+      this.cart.lines.forEach( (line)=>{
          this.linesMP=({ 
           quantity: line.quantity,
           title: "Productos Seleccionados",
-          unit_price: parseInt(line.producto.price),
-          
-  
+          unit_price: parseInt(line.producto.price) 
          });
         });
+
         this.messageService.sendMercadoPago(this.lines).subscribe((res:any) => {
+
+
   
         // console.log('respuesta desde server',res)
-        let response = JSON.stringify(res)
+        let response = JSON.stringify( res )
   
         response = response.replace(/"/g,"")
   

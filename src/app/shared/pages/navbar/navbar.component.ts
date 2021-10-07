@@ -11,7 +11,6 @@ import { ImagesService } from '../../services/images.service';
 })
 export class NavbarComponent implements OnInit, DoCheck {
 
-  numero: any;
   navbarOpen:boolean;
   lineIsEmpty:boolean=true;
 
@@ -33,16 +32,10 @@ export class NavbarComponent implements OnInit, DoCheck {
 
              
              )
-              { 
-
-            //     this.ruta.params.subscribe(params=> {
-          
-            //     this.numero=servicio.itemsProductos()
+              {     
                
       
-                          
-            //  });
-          
+            
        
                 
             }
@@ -66,7 +59,7 @@ export class NavbarComponent implements OnInit, DoCheck {
     .subscribe((evt: NavigationEnd) => {
       this.navbarOpen = false;
     });
- 
+    
     }
  
 

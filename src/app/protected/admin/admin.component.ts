@@ -5,7 +5,7 @@ import { finalize, tap } from 'rxjs/operators';
 import { ImagesService } from 'src/app/shared/services/images.service';
 import { ValidatorService } from 'src/app/shared/validator/validator.service';
 
-import { environment } from 'src/environments/environment';
+import { environment } from 'src/environments/environment.prod';
 
 @Component({
   selector: 'app-admin',
