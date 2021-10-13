@@ -4,7 +4,7 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable, of } from 'rxjs';
 import { catchError, map, tap } from 'rxjs/operators';
 
-import { environment } from '../../../environments/environment.prod';
+import { environment } from '../../../environments/environment';
 
 import { Auth, AuthResponse, User } from '../../intefaces/auth';
 
@@ -26,25 +26,11 @@ export class AuthService {
 
   constructor( private http: HttpClient ) { }
 
-  // verificaAutenticacion(): Observable<boolean> {
-
-  //   if ( !localStorage.getItem('token') ) {
-  //     return of(false);
-  //   }
-
-  //   return this.http.get<Auth>(`${ this.baseUrl }/usuarios/1`)
-  //             .pipe(
-  //               map( auth => {
-  //                 this._auth = auth;
-  //                 return true;
-  //               })
-  //             );
-
-  // }
+ 
 
   validarToken(): Observable<boolean> {
-    const url = '/auth/renew';
-    // const url = `${this.baseUrl}/auth/renew`;
+    // const url = 'api/auth/renew';
+    const url = `${this.baseUrl}api/auth/renew`;
 
     const headers = new HttpHeaders()
       .set('x-token', localStorage.getItem('token') || '' );
@@ -71,8 +57,8 @@ export class AuthService {
 
   login( email: string, password: string ) {
    
-    const url  = '/api/auth/login';
-    // const url  = `${this.baseUrl}/api/auth/login`;
+    // const url  = 'api/auth/login';
+    const url  = `${this.baseUrl}api/auth/login`;
         const body = { email, password };
 
     return this.http.post<AuthResponse>( url, body )

@@ -5,7 +5,7 @@ import { finalize, tap } from 'rxjs/operators';
 import { ImagesService } from 'src/app/shared/services/images.service';
 import { ValidatorService } from 'src/app/shared/validator/validator.service';
 
-import { environment } from 'src/environments/environment.prod';
+import { environment } from 'src/environments/environment';
 
 @Component({
   selector: 'app-admin',
@@ -27,13 +27,6 @@ export class AdminComponent implements OnInit {
   test :any;
   hidden: boolean = true;
   private baseUrl: string = environment.baseUrl; //ojo con el import xq puede ser prod!!
-
-
-
-
-
-
-
 
   constructor(  private _imageService : ImagesService,
                 private http: HttpClient,
@@ -87,7 +80,7 @@ validField( field: string ) {
     reader.onloadend = () => {
       this.imgTemp = reader.result;
     }
-  }
+  };
 
 
   get formControls() {
@@ -149,7 +142,7 @@ validField( field: string ) {
 
     
      const upload = this.http.post( 'api/products', formData,  {
-    //  const upload = this.http.post( `${this.baseUrl}/products`, formData,  {
+    //  const upload = this.http.post( `${this.baseUrl}/api/products`, formData,  {
       
       // headers: options,
       reportProgress: true,

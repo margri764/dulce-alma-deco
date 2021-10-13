@@ -5,12 +5,23 @@
     
         <div class="justificar d-flex" >
 
-            <div class="copyright_hidden"> <a routerLink="../../contact-us"><b>Contacto </b></a><br> <a href=""><b>Ofertas de la semana</b> </a> </div> 
+            <div class="copyright_hidden">
+                <span [routerLink]="['../../contact-us']" > Contacto </span>
+                <br> 
+                <span href="">Ofertas de la semana </span>
+                <br> 
+                <span href="">Otro enlace </span>
+            </div> 
             
-            <div class="copyright"> Seguinos en redes Sociales!! <br>Todos los derechos reservados </div> 
+            <div class="copyright"> Seguinos en redes Sociales!! </div> 
               
                 
              <div class="redes">
+
+                <a  target="_blank" title="whatsapp" href="https://wa.me/+542302416035?text=Hola!!%20" > 
+                    <span id="whatsapp"><i class="fab fa-whatsapp"></i></span>
+                </a>
+
 
                 <a target="_blank" title="Instagram" href="http://www.instagram.com/username">
                     <span id="instagram"><i class="fab fa-instagram"></i></span>

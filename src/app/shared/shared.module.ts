@@ -50,7 +50,6 @@ import { ErrorPageComponent } from './pages/error-page/error-page.component';
     MatButtonModule,
     MatDialogModule,
     FormsModule,
-    MatStepperModule,
     MatFormFieldModule,
     ReactiveFormsModule,
     MatCardModule

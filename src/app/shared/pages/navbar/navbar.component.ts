@@ -1,7 +1,7 @@
 import { Component, DoCheck, ElementRef, HostListener, OnInit, Renderer2, ViewChild } from '@angular/core';
 import { ActivatedRoute, NavigationEnd, Router } from '@angular/router';
 import { filter } from 'rxjs/operators';
-import { Cart } from 'src/app/model/cart.model';
+import { Cart } from 'src/app/models/cart.model';
 import { ImagesService } from '../../services/images.service';
 
 @Component({
@@ -13,6 +13,7 @@ export class NavbarComponent implements OnInit, DoCheck {
 
   navbarOpen:boolean;
   lineIsEmpty:boolean=true;
+  public numItems : number = 0;
 
   // @ViewChild ('navbarClick') navbarClick:ElementRef<HTMLInputElement>
   // @HostListener('mouseout') onMouseOut(){
@@ -25,7 +26,7 @@ export class NavbarComponent implements OnInit, DoCheck {
 
   constructor( private ruta : ActivatedRoute,
                public cart : Cart,
-               private servicio : ImagesService,
+               private _imageservice : ImagesService,
               //  private rendered : Renderer2,
                private element : ElementRef,
                private router: Router
@@ -33,14 +34,13 @@ export class NavbarComponent implements OnInit, DoCheck {
              
              )
               {     
-               
       
-            
-       
                 
             }
             
   ngDoCheck(): void {
+    this.numItems=this._imageservice.itemsProducts()      
+
     if( this.cart.lines.length !==0 ){
       this.lineIsEmpty=false;
     }else{
@@ -53,6 +53,8 @@ export class NavbarComponent implements OnInit, DoCheck {
           
 
   ngOnInit(    ): void {
+
+
 
     this.router.events
     .pipe(filter(evt => evt instanceof NavigationEnd))  

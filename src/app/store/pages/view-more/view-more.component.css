@@ -89,7 +89,7 @@
          -webkit-transition-delay: 0.3s;
          transition-delay: 0.3s;
          font-weight: 400;
-         font-size: 2.5vw;
+         font-size: 5vw;
       
        }
        
@@ -99,7 +99,7 @@
          transition-delay: 0s;
          font-size: 1vw;
        }
-       figure.snip0015 p.precio {
+       figure.snip0015 p.price {
           
               font-size: 5vw;
             }
@@ -141,10 +141,11 @@
 /* ----------------------------------------@media----------------------------------- */
 
 /* Small devices (portrait tablets and large phones, 600px and up) */
-@media only screen and (max-width: 574px) {
+@media only screen and (max-width: 573px) {
 
   .btn{
-    font-size: 2vw;
+    font-size: 3vw;
+    margin-top: 3vw;
   }
 
   figure.snip0015:hover figcaption::before {
@@ -158,7 +159,7 @@
     font-size: 4vw;
     margin-top: 1.5vw;
   }
-  figure.snip0015 p.precio {
+  figure.snip0015 p.price {
      margin-top: 4.5vw;
      font-size: 5vw;
  }
@@ -168,21 +169,34 @@
 }
 
 /* Medium devices (landscape tablets, 768px and up) */
-@media only screen and (min-width: 575px)and  (max-width: 768px) {
+@media only screen and (min-width: 574px)and  (max-width: 767px) {
 
-       figure.snip0015 h2 span {
-           
-              font-size: 3vw;
-          
-            }
-            figure.snip0015 p {
-              margin-top: 1.5vw;
-              font-size: 2.6vw;
-            }
-            figure.snip0015 p.precio {
-              margin-top: 3.5vw;
-              font-size: 5vw;
-           }
+       
+        .btn{
+          font-size: 2vw;
+        }
+
+        figure.snip0015 h2  {
+        margin-top: 3.5vw;
+        font-size: 3vw;
+
+        } 
+
+        figure.snip0015 h2 span {
+        
+          font-size: 2.3vw;
+      
+        }
+
+        figure.snip0015 p {
+          margin-top: 5vw;
+          font-size: 2.6vw;
+        }
+
+        figure.snip0015 p.price {
+          margin-top: 2vw;
+          font-size: 3vw;
+        }
 
        figure.snip0015 {
              
@@ -209,9 +223,20 @@
 
 }
 
-@media only screen and (min-width: 769px)and  (max-width: 1024px) {
+@media only screen and (min-width: 768px)and  (max-width: 1280px) {
 
-       figure.snip0015 h2 span {
+
+            .btn{
+              margin-top: 2vw;
+            }
+                
+            figure.snip0015 h2  {
+              margin-top: 3vw;
+              font-size: 3vw;
+
+              } 
+
+            figure.snip0015 h2 span {
            
               font-size: 3vw;
           
@@ -221,7 +246,7 @@
               font-size: 2vw;
               margin-top: 2vw;
             }
-            figure.snip0015 p.precio {
+            figure.snip0015 p.price {
                margin-top: 5vw;
                font-size: 3vw;
            }
@@ -257,7 +282,17 @@
     
 }
 
-@media only screen and (min-width: 1025px) {
+@media only screen and (min-width: 1281px) {
+
+      .btn{
+        margin-top: 1.6vw;
+      }
+          
+      figure.snip0015 h2  {
+        margin-top: 2vw;
+        font-size: 1.8vw;
+
+        } 
 
        figure.snip0015 h2 span {
            
@@ -266,35 +301,35 @@
             }
             figure.snip0015 p {
            
-              font-size: 1.8vw;
+              font-size: 1.6vw;
               margin-top: 1.5vw;
             }
-            figure.snip0015 p.precio {
+            figure.snip0015 p.price {
                
-               font-size: 2.8vw;
+               font-size: 1.8vw;
                margin-top: 2vw;
            }
 
        figure.snip0015 {
              
-              width: 70vw;
+              width: 60vw;
          
        }
        figure.snip0015 img {
              
-              width: 70vw;
+              width: 60vw;
               height: 40vw;
          
        }
        figure.snip0015 figcaption {
             
-              width: 70vw;
+              width: 60vw;
            
         }
         figure.snip0015:hover figcaption::before {
    
-          top: 10vw;
-          bottom: 10vw;
+          top: 5vw;
+          bottom: 5vw;
     
         }
 

@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Cart } from 'src/app/model/cart.model';
+import { Cart } from 'src/app/models/cart.model';
 import jsPDF from 'jspdf';
 import html2canvas from 'html2canvas';
 import { MessageService } from '../../services/message.service';

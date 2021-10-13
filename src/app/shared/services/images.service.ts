@@ -1,9 +1,10 @@
 import { HttpClient, HttpEventType, HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Subscription } from 'rxjs';
-import { finalize } from 'rxjs/operators';
-import { Cart } from 'src/app/model/cart.model';
-import { environment } from 'src/environments/environment.prod';
+import { pipe, Subscription } from 'rxjs';
+import { finalize, map } from 'rxjs/operators';
+import { Cart } from 'src/app/models/cart.model';
+import { Wood } from 'src/app/models/wood.models';
+import { environment } from 'src/environments/environment';
 
 
 
@@ -17,32 +18,45 @@ export class ImagesService {
   uploadProgress:number;
   uploadSub: Subscription;
   private baseUrl: string = environment.baseUrl; //ojo con el import xq puede ser prod!!
-
+  // limit : number = 3;
   woodProducts : any []=[];
+  public total : number;
 
- get productWood(){
-  return this.woodProducts; 
- }
+//  get productWood(){
+//   return this.woodProducts; 
+//  }
 
 bodyObjectString: string= '';
            
-    
       constructor( private cart : Cart,
                    private http: HttpClient,
                    
                     ) {    }
   
     
-   getProductsFromBackend( ){
-       
-      let params = new HttpParams().set("limit","20");
-      this.http.get( `${this.baseUrl}/api/products`, { params } )
-      .subscribe( (res:any)=>{
-        this.woodProducts = res.product
-
-      })
+   getProductsFromBackend(quantity: number = 0){
      
+      // let params = new HttpParams()
+      // .set("quantityDocs", quantity)
+      return this.http.get<any>( `${this.baseUrl}api/products?quantityDocs=${quantity}`,  )
+
+
+      .pipe(
+        map( resp => {
+          this.woodProducts = resp.product.map( 
+            user => new Wood( user._id, user.name, user.price, user.category, 
+              user.description, user.status, user.img )  
+          );
+          this.total = resp.total;
+          return {
+            total: resp.total,
+            product: this.woodProducts
+        
+          };
+        }))
       };
+
+
 
 
    
@@ -54,7 +68,8 @@ bodyObjectString: string= '';
         formData.append('bodyFront', this.bodyObjectString);
         formData.append('imagen', archivo);
         
-        const upload = this.http.post( `${this.baseUrl}/api/products`, formData, {
+        
+        const upload = this.http.post( `${this.baseUrl}api/products`, formData, {
         reportProgress: true,
         observe: 'events'
       })
@@ -91,8 +106,8 @@ bodyObjectString: string= '';
       return  this.woodProducts[i];
     };
        
-    itemsProductos(){    
-      return this.woodProducts.length;
+    itemsProducts(){    
+      return this.total;
     };
     
     cartIsEmpty(){

@@ -10,54 +10,122 @@
   .flex-container{
   
     height: 7vw;
-    background-image: linear-gradient(90deg, rgb(248, 148, 206),rgb(238, 177, 213));
-    background-color: rgb(235, 166, 206);
+    background-image: linear-gradient(90deg, rgb(190, 0, 0),rgb(241, 0, 0));
+    background-color: rgba(253, 8, 8, 0.89); 
     box-shadow: 5px 5px 20px rgb(170, 170, 170);
+    margin-top: 1vw;
+    padding: 1vw;
+    font-size: 1.3vw;
   }
+
+  .justificar{
+    justify-content: space-between;
+  }
+
+  a{
+    text-decoration: none;
+  }
+  .copyright_hidden span{
+    cursor: pointer;
+    color:rgb(230, 230, 230);
+    font-size: 1.3vw;
+    font-weight: 100;
+    font-family: Ribeye;
+    margin-top: 15px;    
+  }
+
+  .copyright_hidden span:hover{
+    color: rgb(255, 255, 255);
+
+
+  }
+
+
+
+  span#instagram{
+    font-size: 2.7vw;
+    color:rgb(110, 110, 108);
+    margin: 1vw;
+  }
+
+  span#instagram:hover{
+    color:aliceblue;
+}
+
+  span#facebook{
+    font-size: 2.7vw;
+    color:rgb(110, 110, 108);
+    margin: 1vw;
+ 
+  }
+
+  span#facebook:hover{
+    color:aliceblue;
+}
+
+  
+span#whatsapp{
+  margin: 1vw;
+  font-size: 2.7vw;
+  color:rgb(110, 110, 108);
+}
+  
+span#whatsapp:hover{
+  color:aliceblue;
+}
+
+.copyright {
+color: aliceblue;
+font-size: 1.6vw;
+font-weight: 100;
+font-family: Ribeye;
+margin-top: 10px; 
+}
+
    /* -------------------------------------------@media query------------------------------------ */
    
   
    @media only screen and (max-width: 574px){
-   
-     
+
     .flex-container{
-           
+  
+      height: 16vw;
+      background-image: linear-gradient(90deg, rgb(190, 0, 0),rgb(241, 0, 0));
+      background-color: rgba(253, 8, 8, 0.89); 
+      box-shadow: 5px 5px 20px rgb(170, 170, 170);
       margin-top: 1vw;
       padding: 1vw;
-      font-size: 3.8vw;
-      height: 15vw;
-      
+      font-size: 3vw;
+    }
    
-    
-  
-    }
-  
-  
-  
-    .justificar{
-      justify-content: space-between;
-  
-    }
-  
-    span#instagram{
-      font-size: 7vw;
-      color:rgb(110, 110, 108);
-      margin: 1vw;
-    }
-  
-    .copyright_hidden{
+    .copyright_hidden span{
       display: none;
     }
-  
+
+    span#whatsapp{
+      font-size: 8vw;
+      color:rgb(194, 194, 190);
+    }
     span#facebook{
-      font-size: 6vw;
-      color:rgb(110, 110, 108);
+      font-size: 8vw;
+      color:rgb(194, 194, 190);
       margin: 1vw;
    
     }
-   .fb-like{
-      font-size: 4vw;
-   }
+
+    span#instagram{
+      font-size: 8vw;
+      color:rgb(194, 194, 190);
+      margin: 1vw;
+    }
+
+    .copyright {
+
+      font-size: 3vw;
+
+      margin-top: 12px; 
+      }
+
    
    }
    
@@ -67,142 +135,27 @@
   @media only screen and (min-width: 575px)and  (max-width: 768px) {
          
   
-    .flex-container{
-  
-      margin-top: 1vw;
-      padding: 1vw;
-      font-size: 2.3vw;
-    
-  
-  }
-  .copyright_hidden{
-    display: none;
-  }
-  
-  .justificar{
-    justify-content: space-between;
-  }
-  
-    span#instagram{
-      font-size: 5vw;
-      color:rgb(110, 110, 108);
-      margin: 1vw;
-    }
-  
-    span#instagram:hover{
-      color:rgb(238, 91, 226);
-  }
-  
-    span#facebook{
-      font-size: 5vw;
-      color:rgb(110, 110, 108);
-      margin: 1vw;
-   
-    }
-  
-    span#facebook:hover{
-      color:rgb(238, 91, 226);
-  }
-  
-  
+ 
   
   
   
   }
   
   /* Large devices (laptops/desktops, 992px and up) */
-  @media only screen and (min-width: 769px)and (max-width: 1024px){
+  @media only screen and (min-width: 769px)and (max-width: 1280px){
+
   
-    .flex-container{
-  
-      margin-top: 1vw;
-     
-      font-size: 1.6vw;
-    
-  
-  }
-  .justificar{
-    justify-content: space-around;
-  }
-  
-  .icon .copyright {
-  
-      font-size: 1.6vw;
-     
-  }
-  a{
-    text-decoration: none;
-  }
-  
-  
-    span#instagram{
-      font-size: 2.7vw;
-      color:rgb(110, 110, 108);
-      margin: 1vw;
-    }
-  
-    span#instagram:hover{
-      color:rgb(238, 91, 226);
-  }
-  
-    span#facebook{
-      font-size: 2.7vw;
-      color:rgb(110, 110, 108);
-      margin: 1vw;
-   
-    }
-  
-    span#facebook:hover{
-      color:rgb(238, 91, 226);
-  }
-  
-  
-    
+
+
   
   }
   
   /* Extra large devices (large laptops and desktops, 1200px and up) */
-  @media only screen and (min-width: 1025px) {
+  @media only screen and (min-width: 1281px) {
   
   
-    .flex-container{
+
    
-      margin-top: 1vw;
-      padding: 1vw;
-      font-size: 1.3vw;
-    
-  
-  }
-    .justificar{
-      justify-content: space-between;
-    }
-  
-    a{
-      text-decoration: none;
-    }
-  
-    span#instagram{
-      font-size: 2.7vw;
-      color:rgb(110, 110, 108);
-      margin: 1vw;
-    }
-  
-    span#instagram:hover{
-      color:rgb(238, 91, 226);
-  }
-  
-    span#facebook{
-      font-size: 2.7vw;
-      color:rgb(110, 110, 108);
-      margin: 1vw;
-   
-    }
-  
-    span#facebook:hover{
-      color:rgb(238, 91, 226);
-  }
-  
-  
   
   }
   

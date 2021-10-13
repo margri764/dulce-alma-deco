@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { PageEvent} from '@angular/material/paginator';
-import { Cart } from 'src/app/model/cart.model';
+import { Cart } from 'src/app/models/cart.model';
 import { ImagenBackend } from 'src/app/shared/pages/interfaces';
 import { ImagesService } from 'src/app/shared/services/images.service';
 // import { Imagen } from '../../interface';

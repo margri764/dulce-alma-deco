@@ -2,7 +2,8 @@ import { ViewportScroller } from '@angular/common';
 import { Component, HostListener, OnInit } from '@angular/core';
 import { ActivatedRoute, NavigationEnd, Router } from '@angular/router';
 import { filter } from 'rxjs/operators';
-import { Cart } from 'src/app/model/cart.model';
+import { Cart } from 'src/app/models/cart.model';
+import { Wood } from 'src/app/models/wood.models';
 import { ImagenBackend } from 'src/app/shared/pages/interfaces';
 import { ImagesService } from 'src/app/shared/services/images.service';
 import { NotificationService } from 'src/app/shared/services/notification.service';
@@ -14,7 +15,7 @@ import { NotificationService } from 'src/app/shared/services/notification.servic
 })
 export class ViewMoreComponent implements OnInit {
 
-  arrProductos: any = {};
+  public arrProducts: any;
 
   // get productWood(){
   //   // if(this.servicio.productWood.length != 0 ){
@@ -44,10 +45,9 @@ export class ViewMoreComponent implements OnInit {
         { 
           this.activatedRoute.params.subscribe( params => {
       
-           this.arrProductos = this.servicio.getIndex( params["id"] );   
+           this.arrProducts = this.servicio.getIndex( params["id"] );   
          })  
 
-        //  console.log(this.arrProductos.name)
 
   }
 
@@ -61,8 +61,8 @@ export class ViewMoreComponent implements OnInit {
 
 
 
-  addBook(producto:any){
-    this.cart.addLine(producto);
+  addItem(item : any){
+    this.cart.addLine( item );
     this.notification();
   }
 

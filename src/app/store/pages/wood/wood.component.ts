@@ -1,9 +1,13 @@
-import { AfterContentInit, AfterViewChecked, AfterViewInit, ChangeDetectorRef, Component, OnInit } from '@angular/core';
-import { ImagesService } from '../../../shared/services/images.service';
-import Swal from 'sweetalert2';
-import { Cart } from 'src/app/model/cart.model';
-import { ImagenBackend } from '../../interface';
+import { AfterViewChecked, ChangeDetectorRef, Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+
+import Swal from 'sweetalert2';
+
+import { ImagesService } from '../../../shared/services/images.service';
+
+import { Wood } from 'src/app/models/wood.models';
+import { Cart } from 'src/app/models/cart.model';
+import { NotificationService } from 'src/app/shared/services/notification.service';
 
 
 @Component({
@@ -11,66 +15,132 @@ import { Router } from '@angular/router';
   templateUrl: './wood.component.html',
   styleUrls: ['./wood.component.css']
 })
-export class WoodComponent implements OnInit, AfterViewChecked {
+export class WoodComponent implements OnInit {
 
-  arrayProductos : ImagenBackend []=[];
-  numItem : number = 0;  
+  // arrayProductos : ImagenBackend []=[];
+  public arrayProducts : any;
+  public numItem : number;
+  public itemCount : number; 
+  public numPage : number = 1; 
+  increaseDocuments : number = 0;
   cartel : any;
-  hidden:boolean = false
+  hidden:boolean = false;
+  arrowHidden:boolean = true;
+  arrowHiddenForw:boolean = false
 
-  get productWood(){
-  this.numItem=0; 
 
-    if(this.servicio.productWood.length != 0 ){
-      this.hidden=true;
-      this.numItem = this.servicio.productWood.length;
+
+
+
+  public numItems(){
+
+    this.itemCount=this.numItem / 4; 
+    if(this.itemCount % 1 != 0 ){
+      this.itemCount = (Math.floor(this.itemCount)) + 1;
+    return this.itemCount;
     }
-    return this.servicio.productWood; 
-   }
+    return this.itemCount;
+
+  }
+
 
   constructor(
-            public servicio :  ImagesService, 
+            public _imageService:  ImagesService, 
             public cart : Cart,
             public router : Router,
-            private cdRef: ChangeDetectorRef   
+            private cdRef : ChangeDetectorRef,
+            private notificationService : NotificationService, 
             ) { 
               
   }
 
-  ngAfterViewChecked(){
-    this.numItem = this.servicio.productWood.length;
-    this.cdRef.detectChanges();
+  // ngAfterViewChecked(){
+  //   this.cdRef.detectChanges();
+  //   this.loadProducts();
 
-  };
-
-
-  ngOnInit() { 
+  // };
 
 
-    this.servicio.getProductsFromBackend()
-    
- 
-    setTimeout(()=>{
+  ngOnInit():void { 
+
+  
+    this.loadProducts();
+
+   setTimeout(()=>{
+    this.loadProducts();
     this.hidden= true
-    if(this.servicio.productWood.length === 0){
-    this.router.navigateByUrl('/error-page')}
     },10000);
+
+   setTimeout(()=>{
+    this.hidden= true
+    if(this.arrayProducts.length === 0){
+    this.router.navigateByUrl('/error-page')}
+    },15000);
+
 
  
      
    }// fin ngOnInit
 
+   loadProducts(){
+    this._imageService.getProductsFromBackend(this.increaseDocuments)
+    .subscribe( ( { total, product} ) =>{
+      this.arrayProducts = product;
+      this.numItem = total; 
+      this.hidden = true;
+      this.numItems();
+    
+
+    });
+     
+   }
    
 
-      addBook(producto: ImagenBackend){
-        this.cart.addLine(producto)
-      }
-    
-      getCartel(){
-        this.cartel = Swal.fire("Muchas Gracias!", "Producto añadido al Carrito!", "success");
-        return this.cartel
+   addItem(item:any){
+    this.cart.addLine(item);
+    this.notification();
+  }
+
+  notification(){
+    if(this.cart.lines.length !== 0)
+       this.notificationService.success(':: Producto Agregado al Carrito')
+  }
+
+    changePage( valor: number ) {
+      this.increaseDocuments += valor;
+
+console.log(this.increaseDocuments,this.numPage, valor,this.numItem)
+     if( this.numPage < this.itemCount && valor > 0 ){
+      this.numPage++;
      }
 
+     if( valor < 0  ){
+      this.numPage--;
+     }
+     
+     this.arrowHidden=false;
+     this.arrowHiddenForw=false;
+  
+      if ( this.increaseDocuments <= 0 ) {
+        this.increaseDocuments = 0;
+        this.arrowHidden=true;
+        this.arrowHiddenForw=false;
+
+
+      } else if ( this.increaseDocuments >= this.numItem ) {
+        this.increaseDocuments -= valor; 
+        // this.numPage--;
+      }
+      if(this.numPage == this.itemCount){
+        this.arrowHiddenForw=true;
+      }
+      // if(valor == this.increaseDocuments ){
+      //   this.arrowHidden=true;
+      // }
+     
+  
+      this.loadProducts();
+    }
    
         
 }

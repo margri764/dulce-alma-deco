@@ -2,7 +2,7 @@ import { HttpErrorResponse } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
-import { Cart } from 'src/app/model/cart.model';
+import { Cart } from 'src/app/models/cart.model';
 import { MessageService } from 'src/app/shared/services/message.service';
 import { ValidatorService } from 'src/app/shared/validator/validator.service';
 import Swal from 'sweetalert2';

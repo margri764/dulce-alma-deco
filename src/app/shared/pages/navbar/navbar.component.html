@@ -3,13 +3,8 @@
 
   <nav class="navbar navbar-expand-lg navbar-light bg-light" id="font" #navbarClick>
     <div class="container-fluid">
-    <a class="navbar-brand animate__animated animate__bounce "  routerLink="./home">Dulce Alma Deco</a>
+    <a class="navbar-brand animate__animated animate__bounce "  routerLink="./login">Dulce Alma Deco</a>
  
-    <!-- <button class="navbar-toggler" type="button"  
-    data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" 
-    aria-expanded="false" aria-label="Toggle navigation" data-bs-toggle="collapse">
-    <span class="navbar-toggler-icon "></span>
-    </button> -->
   
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation" (click)="toggleNavbar()">
       <span class="navbar-toggler-icon"></span>
@@ -32,7 +27,7 @@
         </a>
 
         <ul class="dropdown-menu animate__animated animate__fadeIn" aria-labelledby="navbarDropdown" >
-          <li> <a class="dropdown-item" routerLink="/store/wood" >Articulos Fibro Facil</a></li>
+          <li> <a class="dropdown-item" routerLink="/store/wood" >Articulos Fibro Facil ({{numItems}})</a></li>
           <li> <a class="dropdown-item" routerLink="/store/stencil" >Sellos </a> </li>
   
           <li> <hr class="dropdown-divider"></li>
@@ -48,9 +43,14 @@
             <a class="nav-link text-dark animate__animated animate__backInDown" routerLink="./contact-us">Contacto</a>
           </li>
 
+
+
           <li class="nav-item">
-            <a class="nav-link text-dark animate__animated animate__backInDown" routerLink="./login">Login</a>
+            <!-- <a class="nav-link text-dark animate__animated animate__backInDown" routerLink="./login">Login</a> -->
           </li>
+
+          
+    
         
           <li class="nav-item" *ngIf="lineIsEmpty===false">                        
          
@@ -59,9 +59,12 @@
                     <mat-icon   class="animate__animated animate__flash animate__infinite">shopping_cart</mat-icon>
                   </button>           
               
-              </li>   
+          </li>   
          
-                     
+          <li class="nav-item">
+            <a  class="whatsapp" href="https://wa.me/+542302416035?text=Hola!!%20" target="blank"> 
+            <i class="fab fa-whatsapp"></i></a>
+          </li>         
 
 
       </ul>   

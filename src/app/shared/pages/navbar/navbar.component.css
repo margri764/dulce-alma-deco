@@ -38,6 +38,12 @@
   /* Extra small devices (phones, 600px and down) */
   @media only screen and (max-width: 574px) {
     
+    .whatsapp{
+      margin-left: auto;
+      font-size: 5vh;
+      color: green;
+  }
+    
   
     .navbar-collapse{
       transition: all 500ms linear;
@@ -97,7 +103,12 @@
     /* Medium devices (landscape tablets, 768px and up) */
     @media only screen and (min-width: 575px) and (max-width: 768px) {
     
-   
+      .whatsapp{
+        margin-left: auto;
+        font-size: 3vw;
+        color: green;
+    }
+      
   
        .navbar-brand{
         font-family:'ribeye';
@@ -144,6 +155,13 @@
     
     /* Large devices (laptops/desktops, 992px and up) */
     @media only screen and (min-width: 768px) and (max-width: 1024px) {
+
+      .whatsapp{
+        margin-left: auto;
+        font-size: 3vw;
+        color: green;
+    }
+      
   
         .navbar-brand{
         font-family:'ribeye';
@@ -185,7 +203,11 @@
   /* Extra Large devices (laptops/desktops, 1280px and up) */ 
   @media only screen and (min-width: 1025px) {
     
-  
+    .whatsapp{
+      margin-left: 13px;
+      font-size: 3vw;
+      color: green;
+  }
     
     .navbar-brand{
       font-family:'ribeye';

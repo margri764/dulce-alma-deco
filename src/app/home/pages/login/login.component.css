@@ -2908,3 +2908,11 @@
   align-items: center;
   }
   
+
+  @media only screen and (max-width: 574px) {
+
+    .login100-form-title {
+      font-size: 8vw;
+
+  }
+}

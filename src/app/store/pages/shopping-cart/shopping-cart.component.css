@@ -16,14 +16,6 @@
 
 }
 
-.photo {
-  object-fit: contain;
-}
-
-.card {
-  width: 20rem;
-  margin: 0 auto;
-}
 
  .material-icons {
     font-family: 'Material Icons';
@@ -37,6 +29,7 @@
     word-wrap: normal;
     white-space: nowrap;
     direction: ltr;
+    color: red;
   
     /* Support for all WebKit browsers. */
     -webkit-font-smoothing: antialiased;
@@ -50,22 +43,17 @@
     font-feature-settings: 'liga';
   }
 
-  #offcanvasExample{
-    font-family: 'ribeye';
 
-  }
 
 .material-icons:hover{
 
-    color:red;
-    
+    color:red;   
       
 }
 
 .carrito {
   background-color: coral;
-  background-image: linear-gradient(30deg, rgb(255, 30, 0),rgb(255, 74, 74));
-  
+  background-image: linear-gradient(30deg, rgb(255, 30, 0),rgb(255, 74, 74));  
   width: 99%;
   height: 25vw; 
   display: flex;
@@ -95,15 +83,11 @@ input{
   font-size: 3.7vw;
 }
 
-.row.font{
+.font{
   font-size: 2vw;
 }
 
-img{
 
-  
-  width: 100%;
-}
 
 
 
@@ -130,7 +114,7 @@ img{
   
 }
 .font{
-  font-size: 2.5vw;
+  font-size: 3.5vw;
   
 }
 
@@ -148,6 +132,10 @@ input{
  
   font-size: 2.6vh;
 
+}
+
+.btn{
+  line-height: 18px;
 }
 
 }
@@ -175,7 +163,11 @@ input{
       
     }
     
-   
+    input{
+ 
+      font-size: 5vh;
+    
+    }
  
     .precio b{
   

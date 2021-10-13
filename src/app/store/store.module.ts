@@ -21,30 +21,40 @@ import { ViewMoreComponent } from './pages/view-more/view-more.component';
 //services
 import { NotificationService } from '../shared/services/notification.service';
 
-
+//pipes
+import { imgPipe } from './pipes/imgPipe';
+import { MatIcon, MatIconModule } from '@angular/material/icon';
+import { MatButtonModule } from '@angular/material/button';
 
 @NgModule({
 
   providers:[
     MatSnackBar,
     NotificationService,
+    MatIconModule,
+    MatIcon
   ],
   declarations: [
     WoodComponent,
     ShoppingCartComponent,
     StencilComponent,
     ViewMoreComponent,
+    
+    //pipes
+    imgPipe
+   ],
  
-  ],
-  imports: [
+   imports: [
     CommonModule,
     StoreRoutingModule,
     RouterModule,
     HttpClientModule,
     ReactiveFormsModule,
     MatPaginatorModule,
-    // MatFormFieldModule,
-    FormsModule
+    FormsModule,
+    MatIconModule,
+    MatButtonModule
+
   ],
   exports:[
     WoodComponent,

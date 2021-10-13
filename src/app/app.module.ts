@@ -11,7 +11,7 @@ import { MatDialogModule } from '@angular/material/dialog';
 import { SocialLoginModule, SocialAuthServiceConfig, GoogleLoginProvider}  from 'angularx-social-login';
 
 
-import { Cart } from './model/cart.model';
+import { Cart } from './models/cart.model';
 import { MatSnackBar } from '@angular/material/snack-bar';
 
 // Cambiar el locale de la app

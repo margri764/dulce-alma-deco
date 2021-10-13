@@ -1,41 +1,91 @@
 
-<h1>Cantidad de Items: {{numItem}}</h1>
+<br>
 
 
-   <div class="flex-container animate__animated animate__fadeIn"  id='font'>
-       
-    <div class="d-flex flex-row flex-wrap   align-items-center justify-content-around ">
-      
-       <div class="div-img text-center mt-5"  *ngFor= "let item of productWood, index as i" >
-    
-          <img class="img" [src]="item.img">                                   
-         
-       
-              
-           <div class="text" id="font">
+    <div class="d-flex  flex-wrap animate__animated animate__fadeIn  align-items-center justify-content-around ">
 
-            <p id="nombre" >{{item.name}} $ {{item.price}}</p>
-
-         
-              <a   [routerLink]="['/store/view-more',i]">
-
-              <p class="vermas text-center text-white" > <b> < VER MÁS > </b> </p> 
-              </a> 
+            
+       <div class="div-img  text-center"  *ngFor= "let item of arrayProducts, index as i" >
+     
+          <img class="img" [src]="item.img">   
           
-              </div>
+      
+      
+
+           <div class="text" >
+
+          
+              <span >{{item.name}}</span> 
+            <br>
+           
+        
+            <div class="row" style="align-items: center;">
+
+              <div class="col-4"  >
+
+                <button class="shopping" mat-mini-fab  [routerLink]="['/store/view-more',i]">
+                  <mat-icon > zoom_in </mat-icon>
+                </button>
+
+            </div>
+            <div class="col-4">
+
+              <span>  {{item.price | currency:'CAD':'symbol-narrow':'2.2-2'}}</span>
+
+
+          </div>
+              <div class="col-4" >
+        
+                <button class="shopping" mat-mini-fab routerLink="/store/shopping-cart"
+                (click)="addItem(item)">                   
+                  <mat-icon >shopping_cart</mat-icon>
+                </button>
+    
+           </div>
+ 
+          </div>
 
        </div>
+
 
        
       
   
   </div>
-  
-
-  
- </div>
+  <br> <br>
 
 
-<div class="my-spinner container align-items-center" [hidden]="hidden">
+
+  </div>
+<br>
+
+  <div class="row" [hidden]="!hidden" >
+
+      <div class="col-5" >
+       <a (click)="changePage(-4)" class="skip_previous"  [hidden]="arrowHidden"> 
+       <mat-icon>skip_previous</mat-icon>
+      </a>
+      </div>
+
+      
+      <div class="col-2 text-center items"  >
+        <h2>{{numPage}} de {{itemCount}} </h2> 
+      </div>
+
+
+      <div class="col-5" [hidden]="arrowHiddenForw">
+        <a (click)="changePage(4)" class="skip_next"> 
+        <mat-icon>skip_next</mat-icon>
+        </a> 
+      </div>
+  </div>
+
+
+
+
+
+ 
+ <div class="my-spinner container align-items-center" [hidden]="hidden">
    <div class="spinner"></div>
-</div>
+    <p style="font-family: ribeye; font-size: medium;">Estamos preparando todo!!...</p>
+</div> 

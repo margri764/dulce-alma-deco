@@ -4,21 +4,29 @@
 
     <figure class="snip0015" >
 
-      <img [src]="arrProductos['img']" alt="" >
-
+      <img [src]="arrProducts.img" alt="images" >
+     
       <figcaption>
-       <!-- <h2>{{ arrProductos["price"] }} </h2> -->
-       <h2>{{ arrProductos["name"] }} </h2>
+        <br>
+
+       <!-- <h2>{{ arrProducts["price"] }} </h2> -->
+       <h2>{{ arrProducts.name }} </h2>
 
           <!-- <h2>{{ product.name  }} </h2> -->
 
-         <p><span>MEDIDAS: 30 x 20 cm </span></p> 
-         <p><span>OBSERVACIONES: </span></p>  
-        <p class="precio">$ {{ arrProductos['price']}}</p>
-         <p><button class="btn" routerLink="/store/shopping-cart" 
-          (click)="addBook(arrProductos)">Agregar al Carrito</button> 
-        </p> 
+         <!-- <p><span>MEDIDAS: 30 x 20 cm </span></p>  -->
+
+      
+        <p class="price"> {{ arrProducts.price | currency:'CAD':'symbol-narrow':'2.2-2'}}</p>
+        
+        <p>
+        <button class="btn" routerLink="/store/shopping-cart" 
+          (click)="addItem(arrProducts)">Agregar al Carrito
+        </button> 
+        </p>
+        <br>
           
+        <p><span>{{arrProducts.description}}</span></p>  
       </figcaption>			
     </figure>
 

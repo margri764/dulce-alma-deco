@@ -1,10 +1,11 @@
 import { Component, ElementRef, HostListener, OnInit, Renderer2, ViewChild } from '@angular/core';
 import { SocialAuthService, GoogleLoginProvider, SocialUser } from 'angularx-social-login';
 import { Router } from '@angular/router';
-import { Cart } from 'src/app/model/cart.model';
+import { Cart } from 'src/app/models/cart.model';
 import { MessageService } from 'src/app/shared/services/message.service';
 import { PdfService } from 'src/app/shared/services/pdf.service';
 import Swal from 'sweetalert2';
+import { Wood } from 'src/app/models/wood.models';
 
 
 interface Products {
@@ -31,7 +32,7 @@ export class ShoppingCartComponent implements OnInit {
   clicked:   boolean;
   dialogRef: any;
   navbarOpen:boolean;
-  arrayProducts=[];
+  arrayProducts : Wood []=[];
   lines: Products;
   isActive:boolean=false;
 
