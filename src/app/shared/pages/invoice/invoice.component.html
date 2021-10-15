@@ -72,7 +72,7 @@
         <button  type="button"   class="btn mt-5" 
         (click)="sendForm()" id="font">Enviar </button> 
         
-        <button type="button" disabled={{clicked}} class="btn mt-5" style="margin-left: 5px;" >
+        <button type="button"[routerLink]="['/home']" routerLinkActive="router-link-active"  class="btn mt-5" style="margin-left: 5px;" >
             Volver   </button> 
 
 </form> 
@@ -111,7 +111,7 @@
                 <button class="btn btn-primary" type="button" *ngIf="visible">
                     <span class="spinner-grow spinner-grow-sm" role="status" aria-hidden="true"></span>
                     Descargando...
-                  </button>
+                </button>
                   
                 
             </div>

@@ -8,7 +8,6 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { MatIconModule } from '@angular/material/icon';
 import { MatBadgeModule } from '@angular/material/badge';
 import { MatButtonModule } from '@angular/material/button';
-import { MatStepperModule } from '@angular/material/stepper';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatCardModule} from '@angular/material/card';
 import { MatDialogModule } from '@angular/material/dialog';
@@ -25,6 +24,7 @@ import { SliderUpComponent } from './pages/slider-up/slider-up.component';
 import { PopupComponent } from './pages/popup/popup.component';
 import { InvoiceComponent } from './pages/invoice/invoice.component';
 import { ErrorPageComponent } from './pages/error-page/error-page.component';
+import { CategoryPipe } from '../store/pipes/categoryPipe';
 
 
 
@@ -39,7 +39,8 @@ import { ErrorPageComponent } from './pages/error-page/error-page.component';
     SliderUpComponent,
     PopupComponent,
     InvoiceComponent,
-    ErrorPageComponent
+    ErrorPageComponent,
+    CategoryPipe
   ],
 
   imports: [
@@ -52,7 +53,8 @@ import { ErrorPageComponent } from './pages/error-page/error-page.component';
     FormsModule,
     MatFormFieldModule,
     ReactiveFormsModule,
-    MatCardModule
+    MatCardModule,
+  
 
  
   ],

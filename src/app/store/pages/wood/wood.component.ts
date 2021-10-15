@@ -109,7 +109,6 @@ export class WoodComponent implements OnInit {
     changePage( valor: number ) {
       this.increaseDocuments += valor;
 
-console.log(this.increaseDocuments,this.numPage, valor,this.numItem)
      if( this.numPage < this.itemCount && valor > 0 ){
       this.numPage++;
      }
@@ -134,10 +133,6 @@ console.log(this.increaseDocuments,this.numPage, valor,this.numItem)
       if(this.numPage == this.itemCount){
         this.arrowHiddenForw=true;
       }
-      // if(valor == this.increaseDocuments ){
-      //   this.arrowHidden=true;
-      // }
-     
   
       this.loadProducts();
     }

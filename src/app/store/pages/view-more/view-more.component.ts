@@ -16,23 +16,6 @@ import { NotificationService } from 'src/app/shared/services/notification.servic
 export class ViewMoreComponent implements OnInit {
 
   public arrProducts: any;
-
-  // get productWood(){
-  //   // if(this.servicio.productWood.length != 0 ){
-  //   //   // this.hidden=true;
-  //   // }
-  //   // this.arrProductos = this.servicio.productWood;
-  //   // const test = this.servicio.productWood.map(( wood )=>{
-  //   //       console.log(wood)
-
-  //   // });
-
-  //   this.arrProductos = this.servicio.productWood;
-
-  //   console.log(this.arrProductos);
-
-  //   return this.servicio.productWood; 
-  //  }
   
   constructor(
             private activatedRoute : ActivatedRoute,

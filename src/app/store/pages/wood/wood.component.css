@@ -46,6 +46,7 @@
   .skip_previous{
     cursor:pointer;
     color: red;
+    line-height: 50px;
   }
   .skip_previous{
     color: rgb(221, 3, 3);

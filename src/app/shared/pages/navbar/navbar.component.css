@@ -1,175 +1,36 @@
 
-@font-face {
-    font-family:'ribeye';
-    src: url(/assets/font/Ribeye-Regular.ttf);
-     
-  }
-
-
-    mat-icon{
-      --animate-duration: 4000ms;
-
-    }
-    
-    .dropdown-item:hover{
-      box-shadow: 1px 1px 2px rgb(100, 97, 97);
-      background-color: rgb(253, 8, 8);  
-      color: antiquewhite; 
-    }
-  
- 
-/*     
-    a{
-    text-decoration: none;
-    color: rgba(253, 8, 8, 0.89);
-    } */
-    
-   
-  
-     .navbar{
-  
-      box-shadow: 5px 5px 10px rgb(100, 97, 97);
-  
-       }
-    
-  /* ------------------------------------@media------------------------------------- */
-  
-  
-  /* Extra small devices (phones, 600px and down) */
-  @media only screen and (max-width: 574px) {
-    
-    .whatsapp{
-      margin-left: auto;
-      font-size: 5vh;
-      color: green;
-  }
-    
-  
-    .navbar-collapse{
-      transition: all 500ms linear;
-    }
-  
-    .navbar-brand{
-      font-family:'ribeye';
-      font-size: 4.6vw;
-      color: rgba(253, 8, 8, 0.89);
-      font-weight: bold;  
-      text-shadow: 1px 1px 2px rgba(253, 8, 8, 0.815);
-       
-      }
-      .navbar-brand:hover{
-        color: rgb(253, 8, 8);    
-        text-shadow: 2px 2px 2px rgba(253, 8, 8, 0.815);        
-      } 
-  
-     
-    
-    
-  
-    .nav-item{
-        transition: all 500ms linear;
-     
-        /* margin-top: 10px; */
-    }
-  
-    #font .nav-item{
-      font-family:'ribeye';
-      font-size: 4.5vw;
-      
-  }
-  
-   #font .dropdown-menu{
-      font-size: 4.5vw;
-      width: 68vw;
-      box-shadow: 5px 5px 10px rgb(100, 97, 97); 
-   }
-  
-   .dropdown-item:hover{
-    
-    background-color: coral;
-    font-weight: bold;
-   
-   }
-  
-  
-  
-
-  
-    
-    
-  }
-    
-  
-    /* Medium devices (landscape tablets, 768px and up) */
-    @media only screen and (min-width: 575px) and (max-width: 768px) {
-    
-      .whatsapp{
-        margin-left: auto;
-        font-size: 3vw;
-        color: green;
-    }
-      
-  
-       .navbar-brand{
-        font-family:'ribeye';
-        font-size: 2.8vw;
-        text-shadow: 1px 1px 2px rgba(253, 8, 8, 0.815);
-        color: rgba(253, 8, 8, 0.89);       
-      }
-      .navbar-brand:hover{
-        color: rgb(253, 8, 8);    
-        text-shadow: 2px 2px 2px rgba(253, 8, 8, 0.815);        
-      } 
-  
-      
-
-    
-      #font .nav-item{
-        font-family:'ribeye';
-        font-size: 2.8vw;
+      @font-face {
+          font-family:'ribeye';
+          src: url(/assets/font/Ribeye-Regular.ttf);
+          
+        }
+        .btn{
+          background-color: coral;
+          background-image: linear-gradient(30deg, rgb(255, 30, 0),rgb(255, 74, 74));
+          color: cornsilk;
+          font-size: 1.3vw;
+          box-shadow: 3px 3px 7px rgb(108, 108, 150);
+        }
+        .btn:hover {
+          box-shadow: 6px 6px 14px rgb(150, 148, 148);
         
-    }
-    
-     #font .dropdown-menu{
-        font-size: 2.8vw;
-        width: 68vw;
-        box-shadow: 5px 5px 10px rgb(100, 97, 97); 
-     }
-    
-     .dropdown-item:hover{
-      
-      background-color: coral;
-      font-weight: bold;
-     
-     }
-    
-      
-    
-    /* a{
-    text-decoration: none;
-    color: rgba(253, 8, 8, 0.89);
-    }
-     */
-  
-    }
-    
-    /* Large devices (laptops/desktops, 992px and up) */
-    @media only screen and (min-width: 768px) and (max-width: 1024px) {
-
-      .whatsapp{
-        margin-left: auto;
+        }
+        .fa-whatsapp{
+        margin-left: 10px;
         font-size: 3vw;
         color: green;
-    }
+        }
       
-  
-        .navbar-brand{
-        font-family:'ribeye';
-        font-size: 2.2vw;
-        color: rgba(253, 8, 8, 0.89);
-        font-weight: bold;
-        text-shadow: 1px 1px 2px rgba(253, 8, 8, 0.815);
-           
+        input{
+          width: 10vw;
+          
+        }
+      .navbar-brand{
+      font-size: 2.2vw;
+      color: rgba(253, 8, 8, 0.89);
+      font-weight: bold;
+      text-shadow: 1px 1px 2px rgba(253, 8, 8, 0.815);
+          
       }
       .navbar-brand:hover{
         color: rgb(253, 8, 8);    
@@ -177,14 +38,13 @@
       } 
   
       .navbar-nav{
-        margin-left: 35vw;
+        margin-left: auto;
       }
     
-   
+  
     
       #font .nav-item{
-        font-family:'ribeye';
-        font-size: 1.8vw;
+        font-size: 1.4vw;
         margin-top: 0.93vw;
         
     }
@@ -195,53 +55,243 @@
         box-shadow: 5px 5px 10px rgb(100, 97, 97); 
      }
     
-  
+
+    mat-icon{
+      --animate-duration: 4000ms;
+
+    }
+    .shopping{
+      margin: 10px;
+    }
     
+    .dropdown-item:hover{
+      box-shadow: 1px 1px 2px rgb(100, 97, 97);
+      background-color: rgb(253, 8, 8);  
+      color: antiquewhite; 
+    }
+  
+  
+     .navbar{
+      font-family: "ribeye";
+      box-shadow: 5px 5px 10px rgb(100, 97, 97);
+  
+       }
+      a.searchResult {
+        cursor: pointer; 
+        color: blue; 
+        font-size: 1.3vw; 
+        font-family: "ribeye"; 
+        font-weight: 100;
+        text-decoration: none;
+      }
+      .navbar-collapse{
+        transition: all 500ms linear;
+        margin-left: 25vw;
+    
+      }
+  
+  /* ------------------------------------@media------------------------------------- */
+  
+  
+  /* Extra small devices (phones, 600px and down) */
+  @media only screen and (max-width: 574px) {
+    
+    input{
+      width:40vw ;
+      
+    }
+
+    form{
+      margin-left: 20vw;
+    }
+
+    .btn{
+      font-size: 3vw;
+    }
+    a.searchResult {
+      font-size: 3vw; 
+   }
+   .navbar-brand{
+    font-size: 4.6vw;
+     
+    }
+
+    .fa-whatsapp{
+      font-size: 10vw;
+      margin-left: 0;
+      }
+    
+    #font .dropdown-menu{
+      font-size: 4.6vw;
+      width: auto;
+ 
+    
+   }
+
+   #font .dropdown-item:hover{
+    
+    background-color: coral;
+    font-weight: bold;
+    width: auto;
+ 
+
+   
+   }
+
+   .whatsapp{
+      font-size: 5vh;
+   } 
+
+   .navbar-collapse{
+    transition: all 500ms linear;
+    margin-left: 0;
+
+  }
+
+  #font .nav-item{
+    transition: all 500ms linear;
+    font-size: 4.6vw;
+
+   }
+
+   
+  }
+    
+  
+    /* Medium devices (landscape tablets, 768px and up) */
+    @media only screen and (min-width: 575px) and (max-width: 768px) {
+    
+      input{
+        width:20vw ;
+        
+      }
+  
+      form{
+        margin-left: 30vw;
+      }
+  
+      .btn{
+        font-size: 2.5vw;
+      }
+      a.searchResult {
+        font-size: 2.5vw; 
+     }
+     .navbar-brand{
+      font-size: 4vw;
+       
+      }
+  
+      .fa-whatsapp{
+        font-size: 8vw;
+        margin-left: 0;
+        }
+      
+      #font .dropdown-menu{
+        font-size: 2.6vw;
+        width: auto;
+   
+      
+     }
+  
+     #font .dropdown-item:hover{
+      
+      background-color: coral;
+      font-weight: bold;
+      width: auto;
+   
+  
+     
+     }
+  
+  
+     .navbar-collapse{
+      transition: all 500ms linear;
+      margin-left: 0;
+  
+    }
+  
+    #font .nav-item{
+      transition: all 500ms linear;
+      font-size: 2.6vw;
+  
+     }
+
+
+    }
+    
+    /* Large devices (laptops/desktops, 992px and up) */
+    @media only screen and (min-width: 769px) and (max-width: 1024px) {
+
+      input{
+        width:20vw ;
+        
+      }
+  
+      form{
+        margin-left: 30vw;
+      }
+  
+      .btn{
+        font-size: 2.5vw;
+      }
+      a.searchResult {
+        font-size: 2.5vw; 
+     }
+     .navbar-brand{
+      font-size: 4vw;
+       
+      }
+  
+      .fa-whatsapp{
+        font-size: 8vw;
+        margin-left: 0;
+        }
+      
+      #font .dropdown-menu{
+        font-size: 2.6vw;
+        width: auto;
+   
+      
+     }
+  
+     #font .dropdown-item:hover{
+      
+      background-color: coral;
+      font-weight: bold;
+      width: auto;
+   
+  
+     
+     }
+  
+  
+     .navbar-collapse{
+      transition: all 500ms linear;
+      margin-left: 0;
+  
+    }
+  
+    #font .nav-item{
+      transition: all 500ms linear;
+      font-size: 2.6vw;
+  
+     }
+
+
+           
+      
   }
     
   
   /* Extra Large devices (laptops/desktops, 1280px and up) */ 
   @media only screen and (min-width: 1025px) {
-    
-    .whatsapp{
-      margin-left: 13px;
-      font-size: 3vw;
-      color: green;
-  }
-    
-    .navbar-brand{
-      font-family:'ribeye';
-      font-size: 1.9vw;
-      color: rgba(253, 8, 8, 0.89);     
-      font-weight: bold;
-      text-shadow: 1px 1px 2px rgba(253, 8, 8, 0.815);
+      
+   .dropdown-item{
+     font-size: 1.3vw;
+     margin-top: 1vw;
     }
-    .navbar-brand:hover{
-      color: rgb(253, 8, 8);    
-      text-shadow: 2px 2px 2px rgba(253, 8, 8, 0.815);        
-    } 
-
-    .navbar-nav{
-      margin-left: 42vw;
-    }
-  
-  
-  #font .nav-item{
-  font-family:'ribeye';
-  font-size: 1.4vw;
-  margin-top: 0.7vw;
-  }
-  
-  
-  
-   .dropdown-menu{
-    font-family:'ribeye';
-    font-size: 1.2vw;
-    width: 30vw;
-    box-shadow: 5px 5px 10px rgb(100, 97, 97); 
-  }
-
-
+    
+        
   
   
   }

@@ -25,6 +25,7 @@ import { NotificationService } from '../shared/services/notification.service';
 import { imgPipe } from './pipes/imgPipe';
 import { MatIcon, MatIconModule } from '@angular/material/icon';
 import { MatButtonModule } from '@angular/material/button';
+import { CategoryPipe } from './pipes/categoryPipe';
 
 @NgModule({
 
@@ -41,7 +42,8 @@ import { MatButtonModule } from '@angular/material/button';
     ViewMoreComponent,
     
     //pipes
-    imgPipe
+    imgPipe,
+
    ],
  
    imports: [

@@ -3,6 +3,7 @@ import { Injectable } from '@angular/core';
 import { pipe, Subscription } from 'rxjs';
 import { finalize, map } from 'rxjs/operators';
 import { Cart } from 'src/app/models/cart.model';
+import { Search } from 'src/app/models/search.models';
 import { Wood } from 'src/app/models/wood.models';
 import { environment } from 'src/environments/environment';
 
@@ -20,6 +21,7 @@ export class ImagesService {
   private baseUrl: string = environment.baseUrl; //ojo con el import xq puede ser prod!!
   // limit : number = 3;
   woodProducts : any []=[];
+  searchProduct : any []=[];
   public total : number;
 
 //  get productWood(){
@@ -38,11 +40,10 @@ bodyObjectString: string= '';
      
       // let params = new HttpParams()
       // .set("quantityDocs", quantity)
-      return this.http.get<any>( `${this.baseUrl}api/products?quantityDocs=${quantity}`,  )
-
-
+      return this.http.get<any>( `${this.baseUrl}api/products?quantityDocs=${quantity}`)
       .pipe(
         map( resp => {
+          console.log(resp)
           this.woodProducts = resp.product.map( 
             user => new Wood( user._id, user.name, user.price, user.category, 
               user.description, user.status, user.img )  
@@ -56,9 +57,25 @@ bodyObjectString: string= '';
         }))
       };
 
+    
+      searchProducts(value: string){
+    
+        return this.http.get<any>( `${this.baseUrl}api/products/search?nameItem=${value}`)
+        .pipe(
+          map( resp => {
+            this.searchProduct = resp.product
+            .map( 
+              item => new Search( item._id, item.name, item.price, item.category, 
+                item.description, item.status, item.img )  
+            );
+            
+            return {
+              product: this.searchProduct,
+          
+            };
 
-
-
+          }))
+      };
    
      dataProductsToBackend( archivo: File , body:any  ) {
         

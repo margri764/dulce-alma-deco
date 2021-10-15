@@ -12,7 +12,7 @@
     
 
  
-    <div class="collapse navbar-collapse text-center" id="navbarSupportedContent"
+    <div class="d-flex collapse navbar-collapse text-center" id="navbarSupportedContent"
     [ngClass]="{ 'show': navbarOpen }">
     
       <ul class="navbar-nav me-auto mb-2 mb-lg-0">
@@ -20,8 +20,7 @@
    
   
       <li class="nav-item dropdown"  data-target=".navbar-collapse.show">
-        <a class="nav-link dropdown-toggle text-dark  
-        animate__animated animate__backInLeft" 
+        <a class="nav-link dropdown-toggle text-dark animate__animated animate__backInLeft" 
                 id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
           Tienda 
         </a>
@@ -41,38 +40,76 @@
 
           <li class="nav-item">
             <a class="nav-link text-dark animate__animated animate__backInDown" routerLink="./contact-us">Contacto</a>
-          </li>
-
-
-
-          <li class="nav-item">
-            <!-- <a class="nav-link text-dark animate__animated animate__backInDown" routerLink="./login">Login</a> -->
-          </li>
-
-          
+          </li> 
+ 
     
         
-          <li class="nav-item" *ngIf="lineIsEmpty===false">                        
+          <li class="nav-item shopping " *ngIf="lineIsEmpty === false">                        
          
                 <button mat-mini-fab  routerLink="./store/shopping-cart">
                    
-                    <mat-icon   class="animate__animated animate__flash animate__infinite">shopping_cart</mat-icon>
+                    <mat-icon class="animate__animated animate__flash animate__infinite">shopping_cart</mat-icon>
                   </button>           
               
           </li>   
          
-          <li class="nav-item">
-            <a  class="whatsapp" href="https://wa.me/+542302416035?text=Hola!!%20" target="blank"> 
+           <li class="nav-item animate__animated animate__bounce">
+            <a  href="https://wa.me/+542302416035?text=Hola!!%20" target="blank"> 
             <i class="fab fa-whatsapp"></i></a>
-          </li>         
+          </li>      
 
 
-      </ul>   
+      </ul> 
+
       </div>
+      <form class="d-flex animate__animated animate__backInRight"(ngSubmit)="Search()">
+        <input class="form-control  me-2" type="search"  aria-label="Search" #txtSearch>
+        <button class="btn" type="submit" >Buscar</button>
+      </form> 
     </div>
 
 </nav>
 
+  <br><br><br>
+<div class="container-fluid" >
+  
+ <br>
+
+
+
+
+  <table class="table" >
+
+    <tbody > 
+      <tr  *ngFor="let item of searchResult">
+          
+        <a class="searchResult" (click)="goToItemSearch( item.category )" >
+          
+         <b> {{item.name | titlecase}} </b> &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;{{ item.category | category }} 
+        
+        </a>
+     
+    
+      </tr>
+   
+    </tbody>
+  </table>
+</div>
+
+<div class="container" *ngIf="alert == true">
+
+  <h1 style="color: red; font-family: ribeye;"><b>NO SE ENCONTRARON RESULTADOS.........</b> </h1>
+</div>
+
+<div class="container" *ngIf="spinner == true" style="font-family: ribeye; color: blue;">
+
+    <span  class="spinner-grow spinner-grow-sm" role="status" aria-hidden="true">
+    </span>
+    Buscando....
+  
+</div>
+
+<br><br><br>
 
 
 

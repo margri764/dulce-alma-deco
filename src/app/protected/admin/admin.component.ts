@@ -141,8 +141,7 @@ validField( field: string ) {
       // const options = this.createRequestOptions();
 
     
-     const upload = this.http.post( 'api/products', formData,  {
-    //  const upload = this.http.post( `${this.baseUrl}/api/products`, formData,  {
+     const upload = this.http.post( `${this.baseUrl}api/products`, formData,  {
       
       // headers: options,
       reportProgress: true,
@@ -162,11 +161,9 @@ validField( field: string ) {
     if(event.type == HttpEventType.ResponseHeader){
        if(event.ok){
          this.hidden=true;
-         alert('producto ok');
-        
+         alert('producto ok');     
 
          this.resetForm();
-
        }
 
     }
