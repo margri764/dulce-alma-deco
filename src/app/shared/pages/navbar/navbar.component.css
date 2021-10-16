@@ -220,71 +220,19 @@
     }
     
     /* Large devices (laptops/desktops, 992px and up) */
-    @media only screen and (min-width: 769px) and (max-width: 1024px) {
+    @media only screen and (min-width: 769px) and (max-width: 1280px) {
 
-      input{
-        width:20vw ;
-        
-      }
-  
-      form{
-        margin-left: 30vw;
-      }
-  
-      .btn{
-        font-size: 2.5vw;
-      }
-      a.searchResult {
-        font-size: 2.5vw; 
-     }
-     .navbar-brand{
-      font-size: 4vw;
+      .dropdown-item{
+        font-size: 1.5vw;
+        margin-top: 1vw;
+       }
        
-      }
-  
-      .fa-whatsapp{
-        font-size: 8vw;
-        margin-left: 0;
-        }
-      
-      #font .dropdown-menu{
-        font-size: 2.6vw;
-        width: auto;
-   
-      
-     }
-  
-     #font .dropdown-item:hover{
-      
-      background-color: coral;
-      font-weight: bold;
-      width: auto;
-   
-  
-     
-     }
-  
-  
-     .navbar-collapse{
-      transition: all 500ms linear;
-      margin-left: 0;
-  
-    }
-  
-    #font .nav-item{
-      transition: all 500ms linear;
-      font-size: 2.6vw;
-  
-     }
-
-
-           
-      
+    
   }
     
   
   /* Extra Large devices (laptops/desktops, 1280px and up) */ 
-  @media only screen and (min-width: 1025px) {
+  @media only screen and (min-width: 1281px) {
       
    .dropdown-item{
      font-size: 1.3vw;

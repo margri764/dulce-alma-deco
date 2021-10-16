@@ -12,29 +12,26 @@ import { ImagesService } from '../../services/images.service';
 })
 export class NavbarComponent implements OnInit, DoCheck {
 
-  navbarOpen:boolean;
+  public navbarOpen:boolean;
   lineIsEmpty:boolean=true;
   public numItems : number = 0;
   public searchResult : Search []=[];
   public alert:boolean = false;
   public spinner : boolean = false;
+  public fade : boolean = false;
+  public search : boolean = true;
 
   @ViewChild ('txtSearch') txtSearch:ElementRef<HTMLInputElement>
+  // @ViewChild ('popover') popover:ElementRef<HTMLInputElement>
+
 
 
   constructor( private ruta : ActivatedRoute,
                public cart : Cart,
                private _imageservice : ImagesService,
-              //  private rendered : Renderer2,
-               private element : ElementRef,
                private router: Router
-
-             
              )
-              {     
-      
-                
-            }
+              {       }
             
   ngDoCheck(): void {
     this.numItems=this._imageservice.itemsProducts()      
@@ -49,30 +46,42 @@ export class NavbarComponent implements OnInit, DoCheck {
   Search( ){
     this.alert = false;
     this.spinner = true;
+    this.fade = false;
     let value = this.txtSearch.nativeElement.value
     this.txtSearch.nativeElement.value=''  
     value= value.toUpperCase();
     this._imageservice.searchProducts( value ).subscribe ( ({product})=>{
       this.searchResult = product;
       this.spinner = false;
-      if(this.searchResult.length==0){
-        this.alert = true;
+    if(this.searchResult.length==0){
+      this.alert = true;
 
+      setTimeout(()=>{
+        this.fade = true;
+
+
+        },2000);
+ 
         setTimeout(()=>{
           this.alert = false;
 
+
           },3000);
-      }
-    });
+    }
+  });
   };
     
-  goToItemSearch(query){
-    if(query === "612106c76bee722f001fd69e"){
-   this.router.navigateByUrl('/store/wood')
-    }else{alert('error en el query')}
+  goToItemSearch( query : any ){
+    if( query === "612106c76bee722f001fd69e" ){
+      this.search = false;
+      this.router.navigateByUrl('/store/wood')
+    } else {
+      alert('error en el query')
+    }
 
-  }        
+  };     
           
+
 
   ngOnInit(    ): void {
 

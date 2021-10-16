@@ -1,23 +1,20 @@
 
 
 
-  <nav class="navbar navbar-expand-lg navbar-light bg-light" id="font" #navbarClick>
+  <nav class="navbar navbar-expand-lg navbar-light bg-light" id="font">
     <div class="container-fluid">
     <a class="navbar-brand animate__animated animate__bounce "  routerLink="./login">Dulce Alma Deco</a>
- 
-  
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation" (click)="toggleNavbar()">
+   
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" 
+    aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation" (click)="toggleNavbar()">
       <span class="navbar-toggler-icon"></span>
     </button>
-    
-
- 
-    <div class="d-flex collapse navbar-collapse text-center" id="navbarSupportedContent"
-    [ngClass]="{ 'show': navbarOpen }">
+  
+    <div class=" collapse navbar-collapse text-center" id="navbarSupportedContent"
+      [ngClass]="{ 'show': navbarOpen }">
     
       <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-
-   
+ 
   
       <li class="nav-item dropdown"  data-target=".navbar-collapse.show">
         <a class="nav-link dropdown-toggle text-dark animate__animated animate__backInLeft" 
@@ -57,26 +54,27 @@
             <a  href="https://wa.me/+542302416035?text=Hola!!%20" target="blank"> 
             <i class="fab fa-whatsapp"></i></a>
           </li>      
-
+        
 
       </ul> 
-
-      </div>
       <form class="d-flex animate__animated animate__backInRight"(ngSubmit)="Search()">
         <input class="form-control  me-2" type="search"  aria-label="Search" #txtSearch>
-        <button class="btn" type="submit" >Buscar</button>
+        <button class="btn" type="submit" data-bs-container="body" data-bs-toggle="popover" data-bs-placement="bottom" data-bs-content="Bottom popover" >
+          Buscar
+        </button>
       </form> 
+   
+      </div>
+ 
+ 
     </div>
+
 
 </nav>
 
-  <br><br><br>
-<div class="container-fluid" >
-  
- <br>
 
-
-
+ 
+<div class="container-fluid animate__animated animate__fadeIn" *ngIf="search" style="margin:2em auto" >
 
   <table class="table" >
 
@@ -88,7 +86,7 @@
          <b> {{item.name | titlecase}} </b> &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;{{ item.category | category }} 
         
         </a>
-     
+   
     
       </tr>
    
@@ -96,12 +94,18 @@
   </table>
 </div>
 
-<div class="container" *ngIf="alert == true">
 
-  <h1 style="color: red; font-family: ribeye;"><b>NO SE ENCONTRARON RESULTADOS.........</b> </h1>
+
+
+<div   [ngClass]="{'animate__animated animate__fadeOut': fade }" *ngIf="alert == true" >
+
+  <h1  style="color: red; font-family: ribeye;margin:2em auto ;">
+    <b>NO SE ENCONTRARON RESULTADOS.........</b> </h1>
 </div>
 
-<div class="container" *ngIf="spinner == true" style="font-family: ribeye; color: blue;">
+
+<div class="container  " *ngIf="spinner == true" 
+  style="font-family: ribeye; color: blue; margin: 2em auto; ">
 
     <span  class="spinner-grow spinner-grow-sm" role="status" aria-hidden="true">
     </span>
@@ -109,7 +113,7 @@
   
 </div>
 
-<br><br><br>
+
 
 
 
